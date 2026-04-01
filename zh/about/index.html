@@ -18,30 +18,7 @@
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="nav">
-    <div class="container nav-inner">
-      <a href="/zh/" class="nav-logo">
-        <img src="/assets/images/icons/logo.png" alt="Toona logo" width="32" height="32" style="border-radius:8px;">
-        吐纳：呼吸 & 专注
-      </a>
-      <ul class="nav-links">
-        <li><a href="/zh/about/" style="color:var(--color-primary);">关于</a></li>
-        <li><a href="/zh/blog/">博客</a></li>
-        <li><a href="/zh/support/">支持</a></li>
-        <li class="lang-switcher">
-          <span class="lang-btn">中文</span>
-          <div class="lang-dropdown">
-            <a href="/about/">English</a>
-            <a href="/zh/about/" class="active">中文</a>
-          </div>
-        </li>
-        <li><a href="/zh/download/" class="btn btn-primary" style="padding:0.5rem 1.25rem;">下载</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <!-- Page Hero -->
+  <!-- Page Content -->
   <section class="page-hero">
     <div class="container page-hero-inner">
       <span class="hero-tag">✦ 我们的故事</span>
@@ -125,49 +102,7 @@
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-inner">
-        <div class="footer-brand">
-          <a href="/zh/" class="nav-logo" style="color:white;">
-            <img src="/assets/images/icons/logo.png" alt="Toona" width="28" height="28" style="border-radius:7px;">
-            吐纳：呼吸 & 专注
-          </a>
-          <p>呼吸更好，生活更平静。<br>专为每个人设计的呼吸训练应用。</p>
-        </div>
-        <div class="footer-col">
-          <h4>产品</h4>
-          <a href="/zh/about/">关于</a>
-          <a href="/zh/download/">下载</a>
-          <a href="/zh/blog/">博客</a>
-        </div>
-        <div class="footer-col">
-          <h4>支持</h4>
-          <a href="/zh/support/">帮助中心</a>
-          <a href="/privacy/zh/PrivacyPolicy.html">隐私政策</a>
-          <a href="/terms/zh/TermsOfUse.html">使用条款</a>
-        </div>
-        <div class="footer-col">
-          <h4>语言</h4>
-          <a href="/about/">English</a>
-          <a href="/zh/about/">中文</a>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <span>© 2026 Toona. 保留所有权利。</span>
-        <span>
-          <a href="/privacy/zh/PrivacyPolicy.html" style="color:inherit;">隐私政策</a> ·
-          <a href="/terms/zh/TermsOfUse.html" style="color:inherit;">使用条款</a>
-        </span>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    const switcher = document.querySelector('.lang-switcher');
-    switcher.addEventListener('click', e => { e.stopPropagation(); switcher.classList.toggle('open'); });
-    document.addEventListener('click', () => switcher.classList.remove('open'));
-  </script>
+  <!-- Footer & Scripts -->
+  <script src="/assets/js/components.js"></script>
 </body>
 </html>
