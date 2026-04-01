@@ -11,7 +11,7 @@
     en: {
       appName:   'Toona: Breathing & Focus',
       about:     'About',
-      blog:      'Blog',
+      blog:      'Dev Log',
       support:   'Support',
       download:  'Download',
       langLabel: 'EN',
@@ -27,7 +27,7 @@
       // paths
       home:        '/',
       aboutPath:   '/about/',
-      blogPath:    '/blog/',
+      blogPath:    '/devlog/',
       supportPath: '/support/',
       downloadPath:'/download/',
       zhPath:      '/zh/',
@@ -38,7 +38,7 @@
     zh: {
       appName:   '吐纳: 呼吸 & 专注',
       about:     '关于',
-      blog:      '博客',
+      blog:      '开发日志',
       support:   '支持',
       download:  '下载',
       langLabel: '中文',
@@ -54,7 +54,7 @@
       // paths
       home:        '/zh/',
       aboutPath:   '/zh/about/',
-      blogPath:    '/zh/blog/',
+      blogPath:    '/zh/devlog/',
       supportPath: '/zh/support/',
       downloadPath:'/zh/download/',
       zhPath:      '/',
@@ -115,7 +115,6 @@
       </div>
       <div class="footer-col">
         <h4>${s.support}</h4>
-        <a href="${s.supportLink}">${s.helpCenter}</a>
         <a href="${s.privacyLink}">${s.privacy}</a>
         <a href="${s.termsLink}">${s.terms}</a>
       </div>
