@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>开发日志 – 吐纳</title>
+  <meta name="description" content="跟随吐纳的开发历程——从想法到上架 App Store，仅用 2 个月。版本更新、新功能与幕后故事。">
+  <meta name="theme-color" content="#7B4FA6">
+  <link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/devlog/">
+  <link rel="alternate" hreflang="en" href="https://www.toona.yoga/devlog/">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="/assets/css/variables.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/devlog.css">
+</head>
+<body>
+
+  <!-- Hero -->
+  <section class="page-hero" style="background:var(--color-bg-dark);color:white;padding-block:var(--space-20);text-align:center;position:relative;overflow:hidden;">
+    <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 60%,rgba(123,79,166,0.4) 0%,transparent 65%);pointer-events:none;"></div>
+    <div class="container" style="position:relative;max-width:680px;">
+      <span class="hero-tag" style="display:inline-block;background:rgba(123,79,166,0.25);color:var(--color-accent-teal);font-size:var(--font-size-sm);font-weight:600;padding:4px 12px;border-radius:9999px;margin-bottom:var(--space-4);border:1px solid rgba(78,205,196,0.2);">✦ 开发日志</span>
+      <h1 style="font-size:var(--font-size-4xl);margin-bottom:var(--space-4);">从想法到 App Store，<br>只用了 2 个月。</h1>
+      <p style="color:#9CA3AF;font-size:var(--font-size-lg);">一个开发者，一款呼吸应用。真实记录这段旅程——成功、bug，以及一切发生的事。</p>
+    </div>
+  </section>
+
+  <!-- Story Bar -->
+  <section class="story-bar">
+    <div class="container story-bar-inner">
+      <div class="story-bar-stat">
+        <h3>2</h3>
+        <p>从想法到 v1.0 的月数</p>
+      </div>
+      <div class="story-bar-stat">
+        <h3>1</h3>
+        <p>独立开发者</p>
+      </div>
+      <div class="story-bar-stat">
+        <h3>v1.0</h3>
+        <p>当前版本</p>
+      </div>
+      <div class="story-bar-stat">
+        <h3>🔜</h3>
+        <p>App Store 审核中</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="timeline section">
+    <div class="container">
+      <div class="timeline-header">
+        <h2>迄今为止的旅程</h2>
+        <p>每一个里程碑、每一次版本更新、每一个塑造吐纳的决定。</p>
+      </div>
+
+      <div class="timeline-track">
+
+        <!-- Item 1: Idea -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2026 年 2 月</div>
+            <div class="timeline-card">
+              <span class="status status-idea">💡 想法</span>
+              <h3>灵感的起点</h3>
+              <p>厌倦了过度复杂的健康应用，我想要一个简单的工具——只是呼吸。某个周日下午，画下了第一张草图。</p>
+            </div>
+          </div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+          <div class="timeline-empty"></div>
+        </div>
+
+        <!-- Item 2: First build -->
+        <div class="timeline-item">
+          <div class="timeline-empty"></div>
+          <div class="timeline-dot"><div class="timeline-dot-inner"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-date">2026 年 2 月 – 3 月</div>
+            <div class="timeline-card">
+              <span class="status status-idea">🔨 开发中</span>
+              <h3>第一个可用原型</h3>
+              <p>核心呼吸引擎、视觉圆圈动画，以及第一批预设模式——箱式呼吸、4-7-8、共振呼吸。</p>
+              <ul>
+                <li>呼吸阶段引擎（吸气 / 屏息 / 呼气）</li>
+                <li>动态圆圈可视化</li>
+                <li>深色 & 浅色模式</li>
+                <li>自定义呼吸模式构建器</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Item 3: v1.0.0 -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2026 年 4 月</div>
+            <div class="timeline-card">
+              <span class="status status-review">⏳ 审核中</span>
+              <h3>v1.0.0 — 首次发布</h3>
+              <p>已提交 App Store 审核。两个月的努力，一次深呼吸。</p>
+              <ul>
+                <li>5 种呼吸预设模式</li>
+                <li>完全自定义呼吸模式</li>
+                <li>进度追踪与每周统计</li>
+                <li>环境音效（白噪音、风声、雨声）</li>
+                <li>CO₂ 耐受度测试</li>
+              </ul>
+              <div class="timeline-screens">
+                <img src="/assets/images/screenshot-dark.png" alt="吐纳 v1.0 深色模式">
+                <img src="/assets/images/screenshot-light.png" alt="吐纳 v1.0 浅色模式">
+                <img src="/assets/images/screenshot-stats.png" alt="吐纳 v1.0 统计页面">
+              </div>
+            </div>
+          </div>
+          <div class="timeline-dot"><div class="timeline-dot-inner" style="background:var(--color-accent-teal);box-shadow:0 0 0 2px var(--color-accent-teal);"></div></div>
+          <div class="timeline-empty"></div>
+        </div>
+
+        <!-- Item 4: Coming next -->
+        <div class="timeline-item">
+          <div class="timeline-empty"></div>
+          <div class="timeline-dot"><div class="timeline-dot-inner" style="background:var(--color-border);box-shadow:0 0 0 2px var(--color-border);"></div></div>
+          <div class="timeline-content">
+            <div class="timeline-date">即将到来</div>
+            <div class="timeline-card" style="border:2px dashed var(--color-border);box-shadow:none;">
+              <span class="status status-idea">🔮 计划中</span>
+              <h3>v1.1.0 — 下一步</h3>
+              <p>还在规划中。如果你有想法或反馈，欢迎联系我。</p>
+              <ul>
+                <li>Android 版本</li>
+                <li>更多环境音效</li>
+                <li>引导式呼吸训练计划</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="devlog-cta">
+    <div class="container">
+      <h2>想一起见证这段旅程？</h2>
+      <p>下载吐纳，从第一天起就成为这段旅程的一部分。</p>
+      <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;">
+        <a href="#" class="btn btn-dark">⬇ App Store</a>
+        <a href="/zh/support/" class="btn" style="background:white;color:var(--color-primary);border-radius:9999px;padding:0.75rem 1.5rem;font-weight:600;">联系我们</a>
+      </div>
+    </div>
+  </section>
+
+  <script src="/assets/js/components.js"></script>
+</body>
+</html>
