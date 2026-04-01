@@ -9,7 +9,7 @@
 
   const t = {
     en: {
-      appName:   'Toona',
+      appName:   'Toona: Breathing & Focus',
       about:     'About',
       blog:      'Blog',
       support:   'Support',
@@ -36,7 +36,7 @@
       supportLink: '/support/',
     },
     zh: {
-      appName:   '吐纳',
+      appName:   '吐纳: 呼吸 & 专注',
       about:     '关于',
       blog:      '博客',
       support:   '支持',
