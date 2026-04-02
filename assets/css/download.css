@@ -1,0 +1,161 @@
+/* ─── Download Hero ──────────────────────────────────── */
+.download-hero {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  padding-block: var(--space-20);
+  position: relative;
+  overflow: hidden;
+}
+.download-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 60% 50%, rgba(123,79,166,0.4) 0%, transparent 65%);
+  pointer-events: none;
+}
+.download-hero-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: var(--space-16);
+  position: relative;
+}
+.download-hero-content h1 { margin-bottom: var(--space-4); }
+.download-hero-content p  { color: #9CA3AF; font-size: var(--font-size-lg); margin-bottom: var(--space-8); }
+.download-btns { display: flex; flex-direction: column; gap: var(--space-3); max-width: 280px; }
+.download-btn {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  background: white;
+  color: #1A1A1A;
+  font-weight: var(--font-weight-semi);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+.download-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+.download-btn .btn-icon { font-size: 1.75rem; }
+.download-btn .btn-text { display: flex; flex-direction: column; }
+.download-btn .btn-sub { font-size: var(--font-size-xs); font-weight: var(--font-weight-normal); color: #6B7280; }
+.download-btn .btn-label { font-size: var(--font-size-base); }
+.download-btn.coming-soon {
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15);
+  color: #9CA3AF;
+  cursor: default;
+}
+.download-btn.coming-soon:hover { transform: none; opacity: 1; }
+.coming-badge {
+  margin-left: auto;
+  font-size: var(--font-size-xs);
+  background: rgba(78,205,196,0.15);
+  color: var(--color-accent-teal);
+  padding: 2px 8px;
+  border-radius: var(--radius-full);
+}
+.req-note {
+  margin-top: var(--space-4);
+  font-size: var(--font-size-xs);
+  color: #6B7280;
+}
+
+/* ─── Screenshots ────────────────────────────────────── */
+.download-hero-screens {
+  display: flex;
+  gap: var(--space-3);
+  justify-content: center;
+  align-items: flex-end;
+}
+.download-hero-screens img {
+  width: 160px;
+  border-radius: 2rem;
+  box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+}
+.download-hero-screens img:nth-child(2) { margin-bottom: var(--space-8); }
+
+/* ─── Features Strip ─────────────────────────────────── */
+.features-strip {
+  background: var(--color-primary);
+  color: white;
+  padding-block: var(--space-8);
+}
+.features-strip-inner {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-12);
+  flex-wrap: wrap;
+}
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+.strip-item .icon { font-size: 1.1rem; }
+
+/* ─── Screenshots Gallery ────────────────────────────── */
+.screenshots { background: var(--color-bg); }
+.screenshots-grid {
+  display: flex;
+  gap: var(--space-4);
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: var(--space-10);
+}
+.screenshots-grid img {
+  width: 180px;
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+}
+
+/* ─── Reviews ────────────────────────────────────────── */
+.reviews { background: var(--color-bg-dark); color: var(--color-text-inverse); }
+.reviews-header { text-align: center; margin-bottom: var(--space-10); }
+.rating-big { font-size: var(--font-size-5xl); font-weight: var(--font-weight-bold); color: var(--color-accent-teal); line-height: 1; }
+.stars { color: #FBBF24; font-size: 1.25rem; margin: var(--space-2) 0; }
+.rating-sub { color: #9CA3AF; font-size: var(--font-size-sm); }
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+.review-card {
+  background: var(--color-bg-card-dark);
+  border: 1px solid var(--color-border-dark);
+  border-radius: var(--radius-xl);
+  padding: var(--space-5);
+}
+.review-stars { color: #FBBF24; font-size: 0.9rem; margin-bottom: var(--space-3); }
+.review-text { font-size: var(--font-size-sm); color: #D1D5DB; line-height: var(--line-height-loose); margin-bottom: var(--space-3); }
+.review-author { font-size: var(--font-size-xs); color: #6B7280; }
+
+/* ─── Requirements ───────────────────────────────────── */
+.requirements { background: var(--color-bg); }
+.req-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+  margin-top: var(--space-8);
+}
+.req-item {
+  background: var(--color-bg-card);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-sm);
+}
+.req-item .icon { font-size: 1.5rem; margin-bottom: var(--space-2); }
+.req-item h4 { font-size: var(--font-size-sm); color: var(--color-text-muted); margin-bottom: var(--space-1); }
+.req-item p  { font-size: var(--font-size-base); font-weight: var(--font-weight-semi); color: var(--color-text); margin: 0; }
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .download-hero-inner { grid-template-columns: 1fr; }
+  .download-hero-screens { order: -1; }
+  .download-hero-screens img { width: 130px; }
+  .download-btns { max-width: 100%; }
+  .reviews-grid { grid-template-columns: 1fr; }
+  .req-grid { grid-template-columns: 1fr 1fr; }
+  .features-strip-inner { gap: var(--space-6); }
+}
