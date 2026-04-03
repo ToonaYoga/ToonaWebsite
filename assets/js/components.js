@@ -79,7 +79,10 @@
       <img src="/assets/images/icons/logo.png" alt="${s.appName} logo" width="32" height="32" style="border-radius:8px;">
       ${s.appName}
     </a>
-    <ul class="nav-links">
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="${s.aboutPath}" ${isActive(s.aboutPath)}>${s.about}</a></li>
       <li><a href="${s.blogPath}" ${isActive(s.blogPath)}>${s.blog}</a></li>
       <li><a href="${s.supportPath}" ${isActive(s.supportPath)}>${s.support}</a></li>
@@ -143,5 +146,16 @@
   if (switcher) {
     switcher.addEventListener('click', e => { e.stopPropagation(); switcher.classList.toggle('open'); });
     document.addEventListener('click', () => switcher.classList.remove('open'));
+  }
+
+  // ─── HAMBURGER ───────────────────────────────────────
+  const hamburger = document.getElementById('hamburger');
+  const navLinks  = document.getElementById('nav-links');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', e => {
+      e.stopPropagation();
+      navLinks.classList.toggle('open');
+    });
+    document.addEventListener('click', () => navLinks.classList.remove('open'));
   }
 })();
