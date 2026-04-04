@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>404 – Page Not Found | Toona</title>
+  <meta name="description" content="Sorry, the page you are looking for does not exist.">
+  <meta name="theme-color" content="#7B4FA6">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="/assets/css/variables.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/404.css">
+</head>
+<body>
+
+  <!-- Page Content -->
+  <main class="error-page section">
+    <div class="container error-inner">
+      <div class="error-content">
+        <h1 class="error-code">404</h1>
+        <h2 class="error-title" id="e-title">Oops! Page not found.</h2>
+        <p class="error-text" id="e-text">The page you're looking for might have been moved, deleted, or never existed in the first place.</p>
+        <div class="error-actions">
+          <a href="/" class="btn btn-primary" id="e-btn">Back to Homepage</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer & Scripts -->
+  <script src="/assets/js/components.js"></script>
+  <script>
+    // Simple language detection for 404 content
+    (function() {
+      const isZh = location.pathname.startsWith('/zh/') || document.referrer.includes('/zh/');
+      if (isZh) {
+        document.title = "404 – 页面未找到 | Toona";
+        document.getElementById('e-title').textContent = "抱歉，找不到该页面";
+        document.getElementById('e-text').textContent = "您访问的页面可能已被移动、删除，或根本不存在。";
+        const btn = document.getElementById('e-btn');
+        btn.textContent = "返回首页";
+        btn.href = "/zh/";
+      }
+    })();
+  </script>
+</body>
+</html>

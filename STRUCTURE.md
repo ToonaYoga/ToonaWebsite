@@ -32,6 +32,7 @@
 │   ├── css/
 │   │   ├── variables.css   # Design tokens (colors, fonts, spacing)
 │   │   ├── base.css        # Reset, typography, nav, footer, buttons
+│   │   ├── 404.css         # 404 page specific styles (gradient text)
 │   │   ├── home.css        # Homepage styles
 │   │   ├── about.css       # About page styles
 │   │   ├── devlog.css      # Dev Log page styles
@@ -55,6 +56,7 @@
 ├── robots.txt
 ├── sitemap.xml             # XML sitemap with hreflang
 ├── index.html              # Homepage (EN)
+├── 404.html                # Custom Error 404 page (Bilingual)
 ├── STRUCTURE.md            # This file
 ├── PRODUCT.md              # Product introduction (EN + ZH)
 └── webhookDEPLOY.md        # GitHub + 宝塔 WebHook deployment guide

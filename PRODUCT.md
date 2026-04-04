@@ -8,7 +8,7 @@
 
 **Toona** (吐纳) is an iOS breathing training app built by a solo developer. Born from a personal need — the realization that a few conscious breaths can defuse anger, reduce stress, and restore calm — Toona makes intentional breathing simple, beautiful, and habit-forming.
 
-From idea to App Store in just 2 months.
+From idea to App Store in 3 months.
 
 ---
 
@@ -54,8 +54,8 @@ It started with a moment of frustration. Instead of letting anger take over, the
 | | |
 |---|---|
 | Platform | iOS (iPhone) |
-| Minimum OS | iOS 18.0 |
-| Storage | Under 50 MB |
+| Minimum OS | iOS 18.6+ |
+| Storage | Under 5 MB |
 | Internet Required | No |
 | Data Collection | None |
 | Price | Free download · $9.99 lifetime unlock |
@@ -82,7 +82,7 @@ Toona collects zero personal data. All session data is stored locally on the use
 
 **吐纳**（Toona）是一款由独立开发者打造的 iOS 呼吸训练应用。它源于一个真实的个人需求——当愤怒袭来时，几次有意识的深呼吸竟然真的奏效了。吐纳的使命，就是让每个人都能随时随地轻松做到这一点。
 
-从想法到上架 App Store，仅用了 2 个月。
+从想法到上架 App Store，用了 3 个月。
 
 ---
 
@@ -128,8 +128,8 @@ Toona collects zero personal data. All session data is stored locally on the use
 | | |
 |---|---|
 | 平台 | iOS（iPhone） |
-| 最低系统要求 | iOS 18.0 |
-| 存储空间 | 不超过 50 MB |
+| 最低系统要求 | iOS 18.6+ |
+| 存储空间 | 不超过 5 MB |
 | 是否需要联网 | 否 |
 | 数据收集 | 无 |
 | 价格 | 免费下载 · $9.99 终生解锁全功能 |
