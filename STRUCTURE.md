@@ -157,8 +157,8 @@ All App Store download buttons use the unified `.btn-download` class with SVG ic
 
 ## Key Config Files
 
-- `.htaccess` — HTTPS redirect, canonical domain, Gzip, browser caching, security headers, custom 404
-- `robots.txt` — allows all crawlers, points to sitemap
-- `sitemap.xml` — all pages with `hreflang` alternate links
-- `assets/js/components.js` — nav/footer injection, language detection
-- `webhookDEPLOY.md` — GitHub + 宝塔 WebHook auto-deploy guide
+- Nginx Config — (In Baota Panel) HTTPS redirect, canonical domain, Gzip, browser caching, security headers, and `error_page 404 /404.html;`
+- robots.txt — allows all crawlers, points to sitemap
+- sitemap.xml — all pages with `hreflang` alternate links
+- assets/js/components.js — nav/footer injection, language detection
+- webhookDEPLOY.md — GitHub + 宝塔 WebHook auto-deploy guide
