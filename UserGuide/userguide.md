@@ -104,7 +104,7 @@ Toona provides science-backed snippets to deepen your understanding of the "Why"
 
 Your privacy is our priority. Toona is designed to be a private sanctuary for your wellness.
 
-* Privacy Commitment: The developer (晓刚 安) does not collect any data from this app. Your session history, baseline results, and personal settings remain exclusively on your device.
+* Privacy Commitment: The developer does not collect any data from this app. Your session history, baseline results, and personal settings remain exclusively on your device.
 * Additional Resources:
   * Product: [About], [Download], [Dev Log]
   * Support: [Privacy Policy], [Terms of Use]
