@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Toona – Guestbook</title>
+  <link rel="stylesheet" href="/assets/css/variables.css">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body class="guestbook-body">
+  
+  <!-- Phase 1: CO2 Test Overlay -->
+  <div id="co2-overlay" class="overlay">
+    <div class="test-container">
+      <h2>Hold your breath...</h2>
+      <p>Test your CO2 tolerance before entering the bubble world.</p>
+      <div id="timer">00.00</div>
+      <button id="test-btn" class="btn btn-primary">PRESS & HOLD</button>
+    </div>
+  </div>
+
+  <!-- Phase 2: Bubble World (Hidden initially) -->
+  <main id="bubble-world" class="hidden">
+    <div class="bubble-container" id="bubble-container">
+      <!-- Bubbles will be injected here -->
+    </div>
+
+    <!-- Message Input (Bottom) -->
+    <div class="msg-input-bar">
+      <input type="text" id="msg-input" placeholder="Breath a thought into a bubble..." maxlength="50">
+      <button id="send-btn" class="btn btn-primary">Release</button>
+    </div>
+  </main>
+
+  <script src="/assets/js/components.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>

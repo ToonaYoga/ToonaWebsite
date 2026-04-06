@@ -1,0 +1,108 @@
+/* ─── Layout ─────────────────────────────────────────── */
+.guestbook-body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden; /* No scroll for this immersive experience */
+  background: var(--color-bg);
+  height: 100vh;
+}
+
+/* ─── Phase 1: Overlay ───────────────────────────────── */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(26, 26, 26, 0.95);
+  backdrop-filter: blur(20px);
+  color: #fff;
+  text-align: center;
+  transition: opacity 1.5s ease;
+}
+.overlay.faded-out {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.test-container h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
+.test-container p { margin-bottom: 2rem; color: #9CA3AF; }
+
+#timer {
+  font-size: 6rem;
+  font-weight: 800;
+  font-family: monospace;
+  margin-block: 2rem;
+  line-height: 1;
+}
+
+/* ─── Phase 2: Bubble World ──────────────────────────── */
+#bubble-world {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  opacity: 1;
+  transition: opacity 1.5s ease;
+}
+
+#bubble-world.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ─── Bubbles ────────────────────────────────────────── */
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 0 10px rgba(255,255,255,0.4);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--color-text);
+  font-size: 0.9rem;
+  word-wrap: break-word;
+  pointer-events: auto;
+  transition: transform 0.3s ease;
+}
+.bubble:hover {
+  transform: scale(1.05);
+  z-index: 50;
+}
+
+/* ─── Input ─────────────────────────────────────────── */
+.msg-input-bar {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(12px);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  width: 90%;
+  max-width: 600px;
+  z-index: 100;
+}
+.msg-input-bar input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  font: inherit;
+  outline: none;
+}
+
+/* Float Animation */
+@keyframes bubbleFloat {
+  0%, 100% { transform: translateY(0) translateX(0); }
+  25% { transform: translateY(-15px) translateX(5px); }
+  50% { transform: translateY(-30px) translateX(-5px); }
+  75% { transform: translateY(-15px) translateX(10px); }
+}
