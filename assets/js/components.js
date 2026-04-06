@@ -138,8 +138,12 @@
 </footer>`;
 
   // ─── INJECT ──────────────────────────────────────────
-  document.body.insertAdjacentHTML('afterbegin', navHTML);
-  document.body.insertAdjacentHTML('beforeend', footerHTML);
+  if (!document.querySelector('.nav')) {
+    document.body.insertAdjacentHTML('afterbegin', navHTML);
+  }
+  if (!document.querySelector('.footer')) {
+    document.body.insertAdjacentHTML('beforeend', footerHTML);
+  }
 
   // ─── LANG SWITCHER ───────────────────────────────────
   const switcher = document.querySelector('.lang-switcher');
