@@ -76,7 +76,7 @@
 <nav class="nav">
   <div class="container nav-inner">
     <a href="${s.home}" class="nav-logo">
-      <img src="/assets/images/icons/logo.png" alt="${s.appName} logo" width="32" height="32" style="border-radius:8px;">
+      <img src="/assets/images/icons/logo.webp" alt="${s.appName} logo" width="32" height="32" style="border-radius:8px;">
       ${s.appName}
     </a>
     <button class="hamburger" id="hamburger" aria-label="Menu">
@@ -105,7 +105,7 @@
     <div class="footer-inner">
       <div class="footer-brand">
         <a href="${s.home}" class="nav-logo" style="color:white;">
-          <img src="/assets/images/icons/logo.png" alt="${s.appName}" width="28" height="28" style="border-radius:7px;">
+          <img src="/assets/images/icons/logo.webp" alt="${s.appName}" width="28" height="28" style="border-radius:7px;">
           ${s.appName}
         </a>
         <p>${s.tagline}</p>
