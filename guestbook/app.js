@@ -1,95 +1,80 @@
-// ─── Constants ───────────────────────────────────────
-const WORKER_URL = 'https://sweet-disk-0439.toonayoga.workers.dev/'; // Your CF Worker URL
+const API_URL = 'https://sweet-disk-0439.toonayoga.workers.dev/';
+let startTime, timerId;
 
-// ─── State ───────────────────────────────────────────
-let startTime = 0;
-let timerInterval = null;
-let testIsActive = false;
-
-// ─── DOM Elements ────────────────────────────────────
-const co2Overlay = document.getElementById('co2-overlay');
-const testBtn    = document.getElementById('test-btn');
-const timerEl    = document.getElementById('timer');
+const testBtn = document.getElementById('test-btn');
+const timerEl = document.getElementById('timer');
+const overlay = document.getElementById('co2-overlay');
 const bubbleWorld = document.getElementById('bubble-world');
-const bubbleContainer = document.getElementById('bubble-container');
-const sendBtn    = document.getElementById('send-btn');
-const msgInput   = document.getElementById('msg-input');
+const container = document.getElementById('bubble-container');
 
-// ─── Phase 1: CO2 Test Logic ─────────────────────────
-function updateTimer() {
-  const diff = (Date.now() - startTime) / 1000;
-  const mins = Math.floor(diff / 60);
-  const secs = (diff % 60).toFixed(2);
-  timerEl.textContent = `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(5, '0')}`;
-}
-
-testBtn.addEventListener('mousedown', (e) => {
-  e.preventDefault();
-  testIsActive = true;
+// 1. CO2 计时逻辑
+const startTimer = () => {
   startTime = Date.now();
-  timerInterval = setInterval(updateTimer, 10);
-});
+  timerId = setInterval(() => {
+    timerEl.innerText = ((Date.now() - startTime)/1000).toFixed(2);
+  }, 10);
+};
 
-window.addEventListener('mouseup', () => {
-  if (testIsActive) {
-    testIsActive = false;
-    clearInterval(timerInterval);
-    // Transition to Phase 2
-    enterBubbleWorld();
-  }
-});
-
-function enterBubbleWorld() {
-  co2Overlay.classList.add('faded-out');
+const stopTimer = () => {
+  if (!startTime) return;
+  clearInterval(timerId);
+  overlay.classList.add('fade-out');
   bubbleWorld.classList.remove('hidden');
-  loadBubbles();
-}
+  loadMessages();
+  startTime = null;
+};
 
-// ─── Phase 2: Bubble Logic ───────────────────────────
-async function loadBubbles() {
+// 支持桌面端与移动端长按
+testBtn.addEventListener('mousedown', startTimer);
+testBtn.addEventListener('touchstart', (e) => { e.preventDefault(); startTimer(); });
+window.addEventListener('mouseup', stopTimer);
+window.addEventListener('touchend', stopTimer);
+
+// 2. 加载接口数据并生成气泡
+async function loadMessages() {
   try {
-    const res = await fetch(WORKER_URL);
-    const msgs = await res.json();
-    bubbleContainer.innerHTML = ''; // Clear
-    msgs.forEach(createBubble);
-  } catch (e) {
-    console.error('Failed to load bubbles:', e);
+    const res = await fetch(API_URL);
+    const data = await res.json();
+    container.innerHTML = '';
+    data.forEach(msg => createBubble(msg.content));
+  } catch (err) {
+    console.error('Fetch error:', err);
   }
 }
 
-function createBubble(msg) {
-  const b = document.createElement('div');
-  b.className = 'bubble';
-  b.textContent = msg.content;
+function createBubble(text) {
+  const div = document.createElement('div');
+  div.className = 'bubble';
+  div.innerText = text;
   
-  // Random Position & Animation Delay
-  const size = 150 + Math.random() * 80;
-  b.style.width = `${size}px`;
-  b.style.height = `${size}px`;
-  b.style.left = `${Math.random() * 80 + 10}vw`;
-  b.style.top = `${Math.random() * 70 + 10}vh`;
-  b.style.animation = `bubbleFloat ${15 + Math.random() * 10}s infinite ease-in-out`;
-  b.style.animationDelay = `${Math.random() * 5}s`;
+  // 随机大小、位置与动画延迟
+  const size = 120 + Math.random() * 80;
+  div.style.width = size + 'px';
+  div.style.height = size + 'px';
+  div.style.left = (Math.random() * 80 + 5) + '%';
+  div.style.top = (Math.random() * 70 + 10) + '%';
+  div.style.animationDelay = (Math.random() * -10) + 's'; // 负延迟让动画立即出现在随机阶段
   
-  bubbleContainer.appendChild(b);
+  container.appendChild(div);
 }
 
-// ─── Send Logic ──────────────────────────────────────
-sendBtn.addEventListener('click', async () => {
-  const content = msgInput.value.trim();
+// 3. 发送新留言
+document.getElementById('send-btn').addEventListener('click', async () => {
+  const input = document.getElementById('msg-input');
+  const content = input.value.trim();
   if (!content) return;
-  
-  // Create temp local bubble for feedback
-  createBubble({ content });
-  msgInput.value = '';
+
+  createBubble(content); // 立即本地渲染，提升体验
+  const oldVal = content;
+  input.value = '';
 
   try {
-    await fetch(WORKER_URL, {
+    await fetch(API_URL, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ content, name: 'Anonymous' })
+      body: JSON.stringify({ content: oldVal })
     });
   } catch (e) {
-    console.error('Failed to save content:', e);
+    console.error('Send error:', e);
   }
 });

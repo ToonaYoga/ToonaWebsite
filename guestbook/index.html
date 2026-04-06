@@ -3,36 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Toona – Guestbook</title>
+  <title>Toona – Bubble Guestbook</title>
   <link rel="stylesheet" href="/assets/css/variables.css">
-  <link rel="stylesheet" href="/assets/css/base.css">
+  <link rel="stylesheet" href="/assets/css/main.css">
   <link rel="stylesheet" href="./style.css">
 </head>
 <body class="guestbook-body">
-  
-  <!-- Phase 1: CO2 Test Overlay -->
+
+  <!-- 阶段一：CO2 测试长按层 -->
   <div id="co2-overlay" class="overlay">
     <div class="test-container">
-      <h2>Hold your breath...</h2>
-      <p>Test your CO2 tolerance before entering the bubble world.</p>
+      <h2>Hold Your Breath...</h2>
+      <p>Breathe deep, start your first session before leaving a message.</p>
       <div id="timer">00.00</div>
-      <button id="test-btn" class="btn btn-primary">PRESS & HOLD</button>
+      <button id="test-btn" class="hold-btn">PRESS & HOLD</button>
+      <p class="hint">Release to enter the bubble world.</p>
     </div>
   </div>
 
-  <!-- Phase 2: Bubble World (Hidden initially) -->
+  <!-- 阶段二：气泡留言世界 -->
   <main id="bubble-world" class="hidden">
-    <div class="bubble-container" id="bubble-container">
-      <!-- Bubbles will be injected here -->
-    </div>
-
-    <!-- Message Input (Bottom) -->
-    <div class="msg-input-bar">
+    <div id="bubble-container" class="bubbles-bg"></div>
+    
+    <div class="input-panel">
       <input type="text" id="msg-input" placeholder="Breath a thought into a bubble..." maxlength="50">
       <button id="send-btn" class="btn btn-primary">Release</button>
     </div>
   </main>
 
+  <!-- 不动现有的 components.js 只做脚本引入 -->
   <script src="/assets/js/components.js"></script>
   <script src="./app.js"></script>
 </body>

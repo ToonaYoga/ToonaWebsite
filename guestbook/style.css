@@ -1,108 +1,96 @@
-/* ─── Layout ─────────────────────────────────────────── */
-.guestbook-body {
+.guestbook-body { 
+  overflow: hidden; 
+  background: var(--color-bg); 
+  height: 100vh; 
+  position: relative; 
   margin: 0;
-  padding: 0;
-  overflow: hidden; /* No scroll for this immersive experience */
-  background: var(--color-bg);
-  height: 100vh;
 }
 
-/* ─── Phase 1: Overlay ───────────────────────────────── */
-.overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(26, 26, 26, 0.95);
-  backdrop-filter: blur(20px);
-  color: #fff;
+/* Overlay 层 */
+.overlay { 
+  position: fixed; 
+  inset: 0; 
+  z-index: 100; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  background: rgba(26, 26, 26, 0.95); 
+  backdrop-filter: blur(20px); 
+  color: #fff; 
   text-align: center;
-  transition: opacity 1.5s ease;
+  flex-direction: column;
+  transition: opacity 1.5s ease; 
 }
-.overlay.faded-out {
-  opacity: 0;
-  pointer-events: none;
-}
-
-.test-container h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #fff; }
-.test-container p { margin-bottom: 2rem; color: #9CA3AF; }
-
-#timer {
-  font-size: 6rem;
-  font-weight: 800;
-  font-family: monospace;
-  margin-block: 2rem;
-  line-height: 1;
-}
-
-/* ─── Phase 2: Bubble World ──────────────────────────── */
-#bubble-world {
-  position: relative;
-  width: 100vw;
-  height: 100vh;
-  opacity: 1;
-  transition: opacity 1.5s ease;
-}
-
-#bubble-world.hidden {
-  opacity: 0;
-  pointer-events: none;
-}
-
-/* ─── Bubbles ────────────────────────────────────────── */
-.bubble {
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1), inset 0 0 10px rgba(255,255,255,0.4);
-  backdrop-filter: blur(5px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 1.5rem;
-  color: var(--color-text);
-  font-size: 0.9rem;
-  word-wrap: break-word;
-  pointer-events: auto;
-  transition: transform 0.3s ease;
-}
-.bubble:hover {
-  transform: scale(1.05);
-  z-index: 50;
-}
-
-/* ─── Input ─────────────────────────────────────────── */
-.msg-input-bar {
-  position: fixed;
-  bottom: 2rem;
-  left: 50%;
-  transform: translateX(-50%);
-  display: flex;
-  gap: 1rem;
-  padding: 1rem;
-  background: rgba(255,255,255,0.8);
-  backdrop-filter: blur(12px);
-  border-radius: var(--radius-full);
-  box-shadow: var(--shadow-lg);
-  width: 90%;
-  max-width: 600px;
-  z-index: 100;
-}
-.msg-input-bar input {
-  flex: 1;
-  background: transparent;
-  border: none;
-  font: inherit;
+.overlay.fade-out { opacity: 0; pointer-events: none; }
+#timer { font-size: 6rem; font-family: monospace; font-weight: 800; margin: 2rem 0; color: #fff; }
+.hold-btn { 
+  background: var(--color-primary); 
+  color: #fff; 
+  border-radius: 50%; 
+  width: 140px; 
+  height: 140px; 
+  font-weight: bold; 
+  cursor: pointer; 
+  transition: transform 0.2s; 
+  border: 4px solid rgba(255,255,255,0.2); 
   outline: none;
 }
+.hold-btn:active { transform: scale(0.9); background: var(--color-accent-teal); }
+.hint { color: rgba(255,255,255,0.5); font-size: 0.9rem; margin-top: 1rem; }
 
-/* Float Animation */
-@keyframes bubbleFloat {
+/* 气泡显示区 */
+#bubble-world { width: 100%; height: 100%; position: relative; }
+#bubble-world.hidden { display: none; }
+.bubbles-bg { width: 100%; height: 100%; }
+
+.bubble {
+  position: absolute; 
+  border-radius: 50%; 
+  background: rgba(123, 79, 166, 0.1); 
+  border: 1px solid rgba(255,255,255,0.3);
+  backdrop-filter: blur(8px); 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  text-align: center;
+  padding: 20px; 
+  font-size: 0.9rem; 
+  color: var(--color-text); 
+  word-break: break-word; 
+  pointer-events: auto;
+  box-shadow: inset 0 0 20px rgba(255,255,255,0.2); 
+  animation: float 20s infinite ease-in-out;
+  user-select: none;
+}
+
+@keyframes float {
   0%, 100% { transform: translateY(0) translateX(0); }
-  25% { transform: translateY(-15px) translateX(5px); }
-  50% { transform: translateY(-30px) translateX(-5px); }
-  75% { transform: translateY(-15px) translateX(10px); }
+  33% { transform: translateY(-50px) translateX(20px); }
+  66% { transform: translateY(50px) translateX(-20px); }
+}
+
+/* 输入面板 */
+.input-panel { 
+  position: fixed; 
+  bottom: 30px; 
+  left: 50%; 
+  transform: translateX(-50%); 
+  display: flex; 
+  gap: 10px; 
+  z-index: 10; 
+  width: 90%; 
+  max-width: 500px; 
+  padding: 8px; 
+  background: rgba(255,255,255,0.85); 
+  border-radius: 99px; 
+  backdrop-filter: blur(20px); 
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1); 
+}
+.input-panel input { 
+  flex: 1; 
+  border: none; 
+  background: transparent; 
+  outline: none; 
+  padding-left: 20px; 
+  font: inherit;
 }
