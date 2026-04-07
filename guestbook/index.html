@@ -13,21 +13,22 @@
   <!-- 阶段一：CO2 测试长按层 -->
   <div id="co2-overlay" class="overlay">
     <div class="test-container">
-      <img src="/assets/images/icons/logo.png" alt="Toona Logo" class="center-logo">
       <h2>Hold Your Breath...</h2>
-      <p>Breathe deep, start your first session before leaving a message.</p>
+      <p class="intro-text">Breathe deep, start your first session before leaving a message.</p>
       <div id="timer">00.00</div>
-      <button id="test-btn" class="hold-btn">PRESS & HOLD</button>
+      <button id="test-btn" class="hold-btn">PRESS<br><span class="amp">&</span><br>HOLD</button>
       <p class="hint">Release to enter the bubble world.</p>
     </div>
   </div>
 
   <!-- 阶段二：气泡留言世界 -->
   <main id="bubble-world" class="hidden">
+    <div id="ambient-bubbles"></div>
     <div id="bubble-container" class="bubbles-bg"></div>
     
     <div class="input-panel">
-      <input type="text" id="msg-input" placeholder="Breath a thought into a bubble..." maxlength="50">
+      <div id="char-count" class="char-count">0/150</div>
+      <input type="text" id="msg-input" placeholder="Breath a deeper thought into a bubble..." maxlength="150">
       <button id="send-btn" class="btn btn-primary">Release</button>
     </div>
   </main>

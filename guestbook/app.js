@@ -47,16 +47,45 @@ function createBubble(text) {
   div.className = 'bubble';
   div.innerText = text;
   
-  // 随机大小、位置与动画延迟
-  const size = 120 + Math.random() * 80;
+  // 3D 景深随机化 (优化模糊度)
+  const depth = Math.random(); // 0(远) ~ 1(近)
+  const size = 100 + (depth * 100); 
+  const blur = (1 - depth) * 1.5; // 最大模糊度降为 1.5px
+  const opacity = 0.5 + (depth * 0.5); 
+  const zIndex = Math.floor(depth * 10);
+  
   div.style.width = size + 'px';
   div.style.height = size + 'px';
   div.style.left = (Math.random() * 80 + 5) + '%';
   div.style.top = (Math.random() * 70 + 10) + '%';
-  div.style.animationDelay = (Math.random() * -10) + 's'; // 负延迟让动画立即出现在随机阶段
+  div.style.opacity = opacity;
+  div.style.filter = `blur(${blur}px)`;
+  div.style.zIndex = zIndex;
+  div.style.animationDelay = (Math.random() * -20) + 's'; 
+  
+  // 点击展开/收起逻辑
+  div.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isExpanded = div.classList.contains('expanded');
+    // 先收起所有其他的
+    document.querySelectorAll('.bubble.expanded').forEach(b => b.classList.remove('expanded'));
+    if (!isExpanded) div.classList.add('expanded');
+  });
   
   container.appendChild(div);
 }
+
+// 点击背景收起气泡
+window.addEventListener('click', () => {
+  document.querySelectorAll('.bubble.expanded').forEach(b => b.classList.remove('expanded'));
+});
+
+// 2.2 字数监控
+const msgInput = document.getElementById('msg-input');
+const charCount = document.getElementById('char-count');
+msgInput.addEventListener('input', () => {
+  charCount.innerText = `${msgInput.value.length}/150`;
+});
 
 // 3. 发送新留言
 document.getElementById('send-btn').addEventListener('click', async () => {
@@ -78,3 +107,24 @@ document.getElementById('send-btn').addEventListener('click', async () => {
     console.error('Send error:', e);
   }
 });
+
+// 4. 背景氛围气泡
+function spawnAmbientBubbles() {
+  const ambientContainer = document.getElementById('ambient-bubbles');
+  setInterval(() => {
+    const b = document.createElement('div');
+    b.className = 'ambient-bubble';
+    const size = 5 + Math.random() * 25;
+    b.style.width = size + 'px';
+    b.style.height = size + 'px';
+    b.style.left = Math.random() * 100 + '%';
+    b.style.animationDuration = (8 + Math.random() * 12) + 's';
+    ambientContainer.appendChild(b);
+    
+    // 定时清理旧气泡，防止 DOM 爆炸
+    setTimeout(() => b.remove(), 20000);
+  }, 400);
+}
+
+// 启动环境气泡
+spawnAmbientBubbles();
