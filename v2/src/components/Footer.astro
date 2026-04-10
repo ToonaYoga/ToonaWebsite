@@ -1,10 +1,11 @@
----
-interface Props {
-	lang?: string;
-}
+import footer from '../data/footer.json';
 
 const { lang = 'en' } = Astro.props;
 const isZH = lang === 'zh';
+
+const brandTitle = isZH ? footer.brand.title_zh : footer.brand.title_en;
+const brandDesc = isZH ? footer.brand.description_zh : footer.brand.description_en;
+const copyright = isZH ? footer.copyright_owner_zh || footer.copyright_owner : footer.copyright_owner;
 ---
 
 <footer class="footer">
@@ -12,27 +13,26 @@ const isZH = lang === 'zh';
 		<div class="footer-brand">
 			<div class="footer-logo">
 				<img src="/assets/images/icons/logo.webp" alt="Toona logo" width="32" height="32" style="border-radius:8px;">
-				{isZH ? '吐纳: 呼吸 & 专注' : 'Toona: Breathing & Focus'}
+				{brandTitle}
 			</div>
-			<p>{isZH ? '呼吸更好，生活更平静。专为每个人设计的呼吸训练应用。' : 'Breathe better, live calmer. A breathing training app for everyone.'}</p>
+			<p>{brandDesc}</p>
 		</div>
 		
 		<div class="footer-grid">
-			<div class="footer-col">
-				<h4>{isZH ? '产品' : 'Product'}</h4>
-				<a href={isZH ? '/zh/about/' : '/about/'}>{isZH ? '关于' : 'About'}</a>
-				<a href={isZH ? '/zh/download/' : '/download/'}>{isZH ? '下载' : 'Download'}</a>
-				<a href={isZH ? '/zh/devlog/' : '/devlog/'}>{isZH ? '开发日志' : 'Dev Log'}</a>
-			</div>
-			<div class="footer-col">
-				<h4>{isZH ? '支持' : 'Support'}</h4>
-				<a href={isZH ? '/privacy/zh/PrivacyPolicy.html' : '/privacy/en/PrivacyPolicy.html'}>{isZH ? '隐私政策' : 'Privacy Policy'}</a>
-				<a href={isZH ? '/terms/zh/TermsOfUse.html' : '/terms/en/TermsOfUse.html'}>{isZH ? '使用条款' : 'Terms of Use'}</a>
-			</div>
+			{footer.sections.map(section => (
+				<div class="footer-col">
+					<h4>{isZH ? section.title_zh : section.title_en}</h4>
+					{section.links.map(link => (
+						<a href={isZH ? link.url_zh : link.url_en}>
+							{isZH ? link.label_zh : link.label_en}
+						</a>
+					))}
+				</div>
+			))}
 		</div>
 	</div>
 	<div class="container footer-bottom">
-		<p>&copy; 2026 {isZH ? '吐纳' : 'Toona'}. All rights reserved.</p>
+		<p>&copy; {new Date().getFullYear()} {copyright}. All rights reserved.</p>
 	</div>
 </footer>
 

@@ -1,24 +1,10 @@
----
-interface Props {
-	lang?: string;
-}
+import navigation from '../data/navigation.json';
 
 const { lang = 'en' } = Astro.props;
 const isZH = lang === 'zh';
 
-const navLinks = isZH ? [
-	{ href: '/zh/', label: '首页' },
-	{ href: '/zh/about/', label: '关于' },
-	{ href: '/zh/download/', label: '下载' },
-	{ href: '/zh/devlog/', label: '开发日志' },
-	{ href: '/zh/support/', label: '支持' }
-] : [
-	{ href: '/', label: 'Home' },
-	{ href: '/about/', label: 'About' },
-	{ href: '/download/', label: 'Download' },
-	{ href: '/devlog/', label: 'Dev Log' },
-	{ href: '/support/', label: 'Support' }
-];
+const navLinks = isZH ? navigation.links_zh : navigation.links_en;
+const logoText = isZH ? navigation.logo_zh : navigation.logo;
 
 const langSwitchLabel = isZH ? '中文' : 'English';
 const otherLangHref = isZH ? '/' : '/zh/';
@@ -29,7 +15,7 @@ const otherLangLabel = isZH ? 'English' : '中文';
 	<div class="container nav-inner">
 		<a href={isZH ? '/zh/' : '/'} class="nav-logo">
 			<img src="/assets/images/icons/logo.webp" alt="Toona logo" width="32" height="32" style="border-radius: 8px;">
-			{isZH ? '吐纳' : 'Toona'}
+			{logoText}
 		</a>
 
 		<div class="nav-links">

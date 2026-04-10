@@ -8,6 +8,58 @@ media_folder: "v2/public/assets/images" # 修正：相对于仓库根目录的�
 public_folder: "/assets/images"         # 修正：相对于部署后网站根目录的路径
 
 collections:
+  - name: "globals"
+    label: "全局设置"
+    delete: false # 防止误删
+    editor:
+      preview: false # 全局设置不需要实时预览
+    files:
+      - name: "navigation"
+        label: "导航栏链接"
+        file: "v2/src/data/navigation.json"
+        fields:
+          - { label: "Logo (English)", name: "logo", widget: "string" }
+          - { label: "Logo (中文)", name: "logo_zh", widget: "string" }
+          - label: "英文链接"
+            name: "links_en"
+            widget: "list"
+            fields:
+              - { label: "文字", name: "label", widget: "string" }
+              - { label: "链接", name: "href", widget: "string" }
+          - label: "中文链接"
+            name: "links_zh"
+            widget: "list"
+            fields:
+              - { label: "文字", name: "label", widget: "string" }
+              - { label: "链接", name: "href", widget: "string" }
+      - name: "footer"
+        label: "页脚设置"
+        file: "v2/src/data/footer.json"
+        fields:
+          - label: "品牌信息"
+            name: "brand"
+            widget: "object"
+            fields:
+              - { label: "标题 (EN)", name: "title_en", widget: "string" }
+              - { label: "标题 (ZH)", name: "title_zh", widget: "string" }
+              - { label: "描述 (EN)", name: "description_en", widget: "text" }
+              - { label: "描述 (ZH)", name: "description_zh", widget: "text" }
+          - label: "分类链接"
+            name: "sections"
+            widget: "list"
+            fields:
+              - { label: "分类标题 (EN)", name: "title_en", widget: "string" }
+              - { label: "分类标题 (ZH)", name: "title_zh", widget: "string" }
+              - label: "链接列表"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "文字 (EN)", name: "label_en", widget: "string" }
+                  - { label: "文字 (ZH)", name: "label_zh", widget: "string" }
+                  - { label: "链接 (EN)", name: "url_en", widget: "string" }
+                  - { label: "链接 (ZH)", name: "url_zh", widget: "string" }
+          - { label: "版权所有者", name: "copyright_owner", widget: "string" }
+
   - name: "pages"
     label: "Pages"
     files:
