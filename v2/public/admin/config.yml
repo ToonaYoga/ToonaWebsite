@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ToonaYoga/ToonaWebsite
+  repo: toonayoga/ToonaWebsite
   branch: main
   base_url: https://toona-auth.toonayoga.workers.dev
 
