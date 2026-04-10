@@ -2,8 +2,6 @@ name: Deploy Toona V2 Beta
 
 on:
   push:
-    paths:
-      - 'v2/**' # 只有当你修改 v2 文件夹里的东西时才触发
     branches:
       - main
 
