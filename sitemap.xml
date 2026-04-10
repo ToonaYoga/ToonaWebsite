@@ -4,102 +4,102 @@
 
   <!-- English (default) -->
   <url>
-    <loc>https://www.toona.yoga/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/"/>
+    <loc>https://toona.yoga/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/"/>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/about/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/about/"/>
+    <loc>https://toona.yoga/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/about/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/download/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/download/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/download/"/>
+    <loc>https://toona.yoga/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/download/"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/devlog/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/devlog/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/devlog/"/>
+    <loc>https://toona.yoga/devlog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/devlog/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/devlog/"/>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/privacy/en/PrivacyPolicy.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/privacy/en/PrivacyPolicy.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/privacy/zh/PrivacyPolicy.html"/>
+    <loc>https://toona.yoga/privacy/en/PrivacyPolicy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/privacy/en/PrivacyPolicy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/privacy/zh/PrivacyPolicy.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/support/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/support/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/support/"/>
+    <loc>https://toona.yoga/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/support/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/support/"/>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/terms/en/TermsOfUse.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/terms/en/TermsOfUse.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/terms/zh/TermsOfUse.html"/>
+    <loc>https://toona.yoga/terms/en/TermsOfUse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/terms/en/TermsOfUse.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/terms/zh/TermsOfUse.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
 
   <!-- Chinese -->
   <url>
-    <loc>https://www.toona.yoga/zh/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/"/>
+    <loc>https://toona.yoga/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/"/>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/zh/about/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/about/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/about/"/>
+    <loc>https://toona.yoga/zh/about/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/about/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/about/"/>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/zh/download/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/download/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/download/"/>
+    <loc>https://toona.yoga/zh/download/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/download/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/download/"/>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/zh/devlog/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/devlog/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/devlog/"/>
+    <loc>https://toona.yoga/zh/devlog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/devlog/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/devlog/"/>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/privacy/zh/PrivacyPolicy.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/privacy/en/PrivacyPolicy.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/privacy/zh/PrivacyPolicy.html"/>
+    <loc>https://toona.yoga/privacy/zh/PrivacyPolicy.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/privacy/en/PrivacyPolicy.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/privacy/zh/PrivacyPolicy.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/zh/support/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/support/"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/zh/support/"/>
+    <loc>https://toona.yoga/zh/support/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/support/"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/zh/support/"/>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.toona.yoga/terms/zh/TermsOfUse.html</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.toona.yoga/terms/en/TermsOfUse.html"/>
-    <xhtml:link rel="alternate" hreflang="zh" href="https://www.toona.yoga/terms/zh/TermsOfUse.html"/>
+    <loc>https://toona.yoga/terms/zh/TermsOfUse.html</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://toona.yoga/terms/en/TermsOfUse.html"/>
+    <xhtml:link rel="alternate" hreflang="zh" href="https://toona.yoga/terms/zh/TermsOfUse.html"/>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
   </url>
