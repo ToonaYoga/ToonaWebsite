@@ -2,7 +2,7 @@ backend:
   name: github
   repo: ToonaYoga/ToonaWebsite
   branch: main
-  base_url: https://toona-cms-auth.vercel.app
+  base_url: https://decap-oauth-proxy-lemon.vercel.app
 
 media_folder: "v2/public/assets/images" # 修正：相对于仓库根目录的路径
 public_folder: "/assets/images"         # 修正：相对于部署后网站根目录的路径
