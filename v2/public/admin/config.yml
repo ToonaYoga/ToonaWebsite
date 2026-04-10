@@ -1,11 +1,11 @@
 backend:
   name: github
-  repo: your-github-username/ToonaWebsite # 你待会需要在这里填入你的 GitHub 仓库名
+  repo: ToonaYoga/ToonaWebsite
   branch: main
-  base_url: https://toona-cms-auth.vercel.app # 后台登录验证代理（我们可以稍后配置）
+  base_url: https://toona-cms-auth.vercel.app
 
-media_folder: "public/assets/images"
-public_folder: "/assets/images"
+media_folder: "v2/public/assets/images" # 修正：相对于仓库根目录的路径
+public_folder: "/assets/images"         # 修正：相对于部署后网站根目录的路径
 
 collections:
   - name: "pages"

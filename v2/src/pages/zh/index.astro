@@ -12,85 +12,115 @@ import homeDataZh from '../../content/pages/home_zh.json';
 		<section class="hero">
 			<div class="container hero-inner">
 				<div class="hero-content">
-					<span class="hero-tag">2.0 新版本已上线</span>
+					<span class="hero-tag">✦ 呼吸训练应用</span>
 					<h1 set:html={homeDataZh.heroTitle.replace('，', '，<br>')}></h1>
 					<p>{homeDataZh.heroSubtitle}</p>
 					<div class="hero-actions">
-						<a href={homeDataZh.appStoreLink} class="btn btn-primary">立即下载</a>
-						<a href="/zh/about/" class="btn btn-outline">了解更多</a>
+						<a href={homeDataZh.appStoreLink} class="btn-download">
+							<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v11M4 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="2" y1="16" x2="14" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+							在 App Store 下载
+						</a>
 					</div>
+					<p class="hero-note">免费下载 · 仅限 iOS 18.6+</p>
 				</div>
 				<div class="hero-image">
-					<img src="/assets/images/hero-mockup.webp" alt="吐纳 应用预览" width="420" height="850">
+					<img src="/assets/images/lung-light-zh.webp" alt="吐纳 应用预览" width="210" height="455">
+					<img src="/assets/images/settings-dark-zh.webp" alt="吐纳 设置界面" width="210" height="455">
 				</div>
 			</div>
 		</section>
+
+		<!-- Features -->
+		<section class="features section">
+			<div class="container">
+				<div class="section-header">
+					<h2>你所需要的一切，皆为呼吸</h2>
+					<p>科学支持的模式、精美的视觉效果和深入的洞察，让你保持一致性。</p>
+				</div>
+				<div class="features-grid">
+					<div class="card feature-card">
+						<div class="icon-circle" style="background:rgba(78,205,196,0.15);">🫁</div>
+						<h3>引导模式</h3>
+						<p>箱式呼吸、4-7-8 助眠、共振呼吸以及完全自定义模式——全部在一处开启。</p>
+					</div>
+					<div class="card feature-card">
+						<div class="icon-circle" style="background:rgba(123,79,166,0.15);">📊</div>
+						<h3>进度追踪</h3>
+						<p>周趋势、相位分布图和完整的会话历史记录，保持你的训练动力。</p>
+					</div>
+					<div class="card feature-card">
+						<div class="icon-circle" style="background:rgba(255,107,53,0.15);">🎵</div>
+						<h3>环境音效</h3>
+						<p>白噪声、风声、雨声及更多——随你的呼吸节奏波动的环境音。</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- Showcase: Stats -->
+		<section class="showcase section dark">
+			<div class="container showcase-inner">
+				<div class="showcase-screens">
+					<img src="/assets/images/stats-light-zh.webp" alt="吐纳 统计" width="175" height="380">
+					<img src="/assets/images/history-light-zh.webp" alt="吐纳 历史" width="175" height="380">
+				</div>
+				<div class="showcase-content">
+					<span class="hero-tag">📈 洞察</span>
+					<h2>追踪每一次呼吸，<br>记录每一天。</h2>
+					<p>详细的代码分析显示你的总练习时间、完成的轮次和活跃天数——让你见证随着时间推移带来的真实进步。</p>
+				</div>
+			</div>
+		</section>
+
+		<!-- Download CTA -->
+		<section class="download-cta">
+			<div class="container">
+				<h2>准备好开始呼吸了吗？</h2>
+				<p>立即下载 吐纳 (Toona)，开启通往更平静、更专注的旅程。</p>
+				<a href={homeDataZh.appStoreLink} class="btn btn-outline" style="background: white; color: var(--color-primary); border:none;">立即开始</a>
+			</div>
+		</section>
 	</main>
-	<Footer lang="en" />
+	<Footer lang="zh" />
 </MainLayout>
 
 <style>
-	.container {
-		max-width: 1120px;
-		margin: 0 auto;
-		padding: 0 1.5rem;
-	}
-	.hero {
-		background: #1A1A1A;
-		color: white;
-		padding: 8rem 0 4rem;
-		min-height: 80vh;
-		display: flex;
-		align-items: center;
-		overflow: hidden;
-	}
-	.hero-inner {
-		display: grid;
-		grid-template-columns: 1fr 1fr;
-		gap: 4rem;
-		align-items: center;
-	}
-	.hero-tag {
-		display: inline-block;
-		background: rgba(123, 79, 166, 0.2);
-		color: #4ECDC4;
-		border: 1px solid rgba(78, 205, 196, 0.2);
-		padding: 0.25rem 0.75rem;
-		border-radius: 99px;
-		font-size: 0.875rem;
-		margin-bottom: 1rem;
-	}
-	.hero h1 {
-		font-size: 4rem;
-		line-height: 1.1;
-		margin-bottom: 1.5rem;
-	}
-	.hero p {
-		font-size: 1.25rem;
-		color: #9CA3AF;
-		margin-bottom: 2.5rem;
-		max-width: 480px;
-	}
-	.hero-actions { display: flex; gap: 1rem; }
-	
-	.btn {
-		padding: 0.75rem 2rem;
-		border-radius: 99px;
-		font-weight: 600;
-		transition: transform 0.2s;
-	}
-	.btn:hover { transform: translateY(-2px); }
-	.btn-primary { background: #7B4FA6; color: white; }
-	.btn-outline { border: 2px solid rgba(255,255,255,0.2); color: white; }
+	.container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+	.hero { background: #1A1A1A; color: white; padding: 8rem 0 4rem; min-height: 80vh; display: flex; align-items: center; overflow: hidden; }
+	.hero-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+	.hero-tag { display: inline-block; background: rgba(123,79,166,0.25); color: #4ECDC4; font-size: 0.875rem; padding: 0.25rem 0.75rem; border-radius: 99px; border: 1px solid rgba(78,205,196,0.2); margin-bottom: 1rem; }
+	.hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; }
+	.hero p { font-size: 1.25rem; color: #9CA3AF; margin-bottom: 2.5rem; max-width: 480px; }
+	.btn-download { display: inline-flex; align-items: center; gap: 0.75rem; background: #000; color: white; padding: 0.75rem 1.5rem; border-radius: 99px; font-weight: 600; border: 1px solid rgba(255,255,255,0.2); }
+	.hero-note { font-size: 0.75rem; color: #6B7280; margin-top: 1rem; }
 
-	.hero-image img {
-		box-shadow: 0 24px 64px rgba(0,0,0,0.5);
-		border-radius: 2.5rem;
-	}
+	.section { padding: 5rem 0; }
+	.section-header { text-align: center; margin-bottom: 3rem; }
+	.section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #1A1A1A; }
+	.features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+	.card { background: white; padding: 2rem; border-radius: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border: 1px solid #E5E7EB; }
+	.icon-circle { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; margin-bottom: 1.5rem; }
+	.feature-card h3 { color: #1A1A1A; margin-bottom: 1rem; }
+	.feature-card p { font-size: 0.875rem; color: #6B7280; }
+
+	.showcase.dark { background: #1A1A1A; color: white; }
+	.showcase.dark .hero-tag { background: rgba(123,79,166,0.2); color: #4ECDC4; }
+	.showcase-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
+	.showcase-screens { display: flex; gap: 1rem; align-items: flex-end; justify-content: center; }
+	.showcase-screens img { border-radius: 2rem; box-shadow: 0 20px 48px rgba(0,0,0,0.4); }
+	.showcase-content h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+	.showcase-content p { color: #9CA3AF; line-height: 1.6; }
+
+	.download-cta { background: #7B4FA6; color: white; text-align: center; padding: 6rem 0; }
+	.download-cta h2 { font-size: 3rem; margin-bottom: 1rem; color: white; }
+	.download-cta p { font-size: 1.25rem; margin-bottom: 2.5rem; opacity: 0.9; }
+
+	.hero-image { display: flex; gap: 1rem; align-items: flex-end; }
+	.hero-image img { box-shadow: 0 24px 64px rgba(0,0,0,0.5); border-radius: 2rem; }
 
 	@media (max-width: 768px) {
-		.hero-inner { grid-template-columns: 1fr; text-align: center; }
-		.hero-actions { justify-content: center; }
+		.hero-inner, .showcase-inner { grid-template-columns: 1fr; text-align: center; }
+		.hero-image, .showcase-screens { justify-content: center; }
 		.hero h1 { font-size: 3rem; }
 	}
 </style>

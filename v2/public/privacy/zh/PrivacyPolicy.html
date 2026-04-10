@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Toona 隐私政策</title>
+  <meta name="description" content="Toona 隐私政策。">
+  <style>
+    :root {
+      --bg: #f4f6f7;
+      --surface: rgba(255, 255, 255, 0.92);
+      --surface-border: rgba(35, 49, 67, 0.08);
+      --text: #1e252d;
+      --muted: #66717c;
+      --accent: #1f8b7c;
+      --accent-soft: rgba(31, 139, 124, 0.12);
+      --shadow: 0 18px 45px rgba(26, 35, 45, 0.08);
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --max-width: 920px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background:
+        radial-gradient(circle at top left, rgba(86, 199, 183, 0.12), transparent 32%),
+        radial-gradient(circle at top right, rgba(127, 149, 255, 0.08), transparent 28%),
+        var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "PingFang SC", "Noto Sans SC", sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover { text-decoration: underline; }
+
+    .wrap {
+      width: min(var(--max-width), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 48px 0 72px;
+    }
+
+    .hero,
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+
+    .hero {
+      padding: 34px 28px;
+      margin-bottom: 20px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+    }
+
+    h1 {
+      margin: 16px 0 8px;
+      font-size: clamp(34px, 5vw, 52px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+      max-width: 720px;
+    }
+
+    .section {
+      padding: 28px 24px;
+      margin-top: 16px;
+    }
+
+    h2 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+    }
+
+    p {
+      margin: 0;
+      color: var(--text);
+      font-size: 16px;
+    }
+
+    p + p,
+    p + ul,
+    ul + p {
+      margin-top: 12px;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text);
+    }
+
+    li + li { margin-top: 8px; }
+
+    .footer {
+      margin-top: 22px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .wrap {
+        width: min(var(--max-width), calc(100% - 20px));
+        padding: 24px 0 48px;
+      }
+
+      .hero,
+      .section {
+        padding: 22px 18px;
+        border-radius: 22px;
+      }
+
+      .subtitle,
+      p {
+        font-size: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="eyebrow">Toona 隐私政策</div>
+      <h1>隐私政策</h1>
+      <p class="subtitle">生效日期：2026 年 3 月 19 日</p>
+    </section>
+
+    <section class="section">
+      <h2>1. 我们收集的信息</h2>
+      <p>
+        Toona 的核心呼吸练习功能和相关记录保存在您的本地设备中。我们不要求您创建账号，也不会将您的个人信息、呼吸记录或日常练习数据收集、存储或传输到我们的服务器。
+      </p>
+      <p>
+        您的呼吸练习记录、偏好设置和自定义节奏会通过 Apple 的原生存储框架保存在本地设备上。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>2. 应用内购买</h2>
+      <p>
+        用于解锁 Toona Pro 的应用内购买由 Apple 通过 App Store 完成处理。我们不会接收或存储您的银行卡信息、账单地址或完整支付信息。
+      </p>
+      <p>
+        Apple 可能会根据其自身的隐私政策和服务条款处理与交易相关的信息。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>3. 第三方服务</h2>
+      <p>
+        Toona 未接入会从 App 中收集个人数据的第三方统计分析、广告 SDK 或崩溃收集工具。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>4. 隐私政策更新</h2>
+      <p>
+        我们可能会不时更新本隐私政策。如果未来 App 的数据处理方式发生变化，本页面也会相应更新。建议您定期查看本页面以了解最新内容。
+      </p>
+    </section>
+
+    <section class="section">
+      <h2>5. 联系我们</h2>
+      <p>
+        如果您对本隐私政策有任何疑问，可以通过 App Store 反馈渠道，或 Toona 网站上公布的支持联系方式与开发者联系。
+      </p>
+    </section>
+
+    <p class="footer">Toona · 隐私政策</p>
+  </main>
+</body>
+</html>
