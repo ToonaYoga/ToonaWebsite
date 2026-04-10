@@ -1,0 +1,79 @@
+---
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const isZH = lang === 'zh';
+---
+
+<footer class="footer">
+	<div class="container footer-inner">
+		<div class="footer-brand">
+			<div class="footer-logo">
+				<img src="/assets/images/icons/logo.webp" alt="Toona logo" width="32" height="32" style="border-radius:8px;">
+				{isZH ? '吐纳: 呼吸 & 专注' : 'Toona: Breathing & Focus'}
+			</div>
+			<p>{isZH ? '呼吸更好，生活更平静。专为每个人设计的呼吸训练应用。' : 'Breathe better, live calmer. A breathing training app for everyone.'}</p>
+		</div>
+		
+		<div class="footer-grid">
+			<div class="footer-col">
+				<h4>{isZH ? '产品' : 'Product'}</h4>
+				<a href={isZH ? '/zh/about/' : '/about/'}>{isZH ? '关于' : 'About'}</a>
+				<a href={isZH ? '/zh/download/' : '/download/'}>{isZH ? '下载' : 'Download'}</a>
+				<a href={isZH ? '/zh/devlog/' : '/devlog/'}>{isZH ? '开发日志' : 'Dev Log'}</a>
+			</div>
+			<div class="footer-col">
+				<h4>{isZH ? '支持' : 'Support'}</h4>
+				<a href={isZH ? '/privacy/zh/PrivacyPolicy.html' : '/privacy/en/PrivacyPolicy.html'}>{isZH ? '隐私政策' : 'Privacy Policy'}</a>
+				<a href={isZH ? '/terms/zh/TermsOfUse.html' : '/terms/en/TermsOfUse.html'}>{isZH ? '使用条款' : 'Terms of Use'}</a>
+			</div>
+		</div>
+	</div>
+	<div class="container footer-bottom">
+		<p>&copy; 2026 {isZH ? '吐纳' : 'Toona'}. All rights reserved.</p>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		background: #1A1A1A;
+		color: #9CA3AF;
+		padding: 4rem 0 2rem;
+		border-top: 1px solid #333;
+	}
+	.footer-inner {
+		display: grid;
+		grid-template-columns: 2fr 1fr;
+		gap: 4rem;
+		margin-bottom: 3rem;
+	}
+	.footer-logo {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		color: white;
+		font-weight: 700;
+		margin-bottom: 1.5rem;
+	}
+	.footer-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 2rem;
+	}
+	.footer-col h4 { color: white; margin-bottom: 1.5rem; }
+	.footer-col a { display: block; margin-bottom: 0.75rem; font-size: 0.875rem; }
+	.footer-col a:hover { color: white; }
+	
+	.footer-bottom {
+		padding-top: 2rem;
+		border-top: 1px solid #333;
+		font-size: 0.75rem;
+		text-align: center;
+	}
+
+	@media (max-width: 768px) {
+		.footer-inner { grid-template-columns: 1fr; }
+	}
+</style>

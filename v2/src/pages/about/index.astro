@@ -1,0 +1,27 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Nav from '../components/Nav.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<MainLayout title="About Toona: Our Vision for Mindful Breathing">
+	<Nav lang="en" />
+	<main class="container page-content">
+		<h1>About Toona</h1>
+		<p class="lead">Breathe better, live calmer. A breathing training app for everyone.</p>
+		
+		<div class="content-text">
+			<p>Toona was born from a simple observation: breathing is the most natural thing we do, yet many of us have forgotten how to do it effectively to manage stress and focus.</p>
+			<!-- More content from existing about page would go here -->
+		</div>
+	</main>
+	<Footer lang="en" />
+</MainLayout>
+
+<style>
+	.container { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+	.page-content { padding-top: 8rem; padding-bottom: 4rem; }
+	h1 { font-size: 3rem; margin-bottom: 1rem; color: #7B4FA6; }
+	.lead { font-size: 1.5rem; color: #6B7280; margin-bottom: 3rem; }
+	.content-text p { margin-bottom: 1.5rem; font-size: 1.125rem; line-height: 1.8; color: #4B5563; }
+</style>
