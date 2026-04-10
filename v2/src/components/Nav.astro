@@ -1,0 +1,124 @@
+---
+interface Props {
+	lang?: string;
+}
+
+const { lang = 'en' } = Astro.props;
+const isZH = lang === 'zh';
+
+const navLinks = isZH ? [
+	{ href: '/zh/', label: '首页' },
+	{ href: '/zh/about/', label: '关于' },
+	{ href: '/zh/download/', label: '下载' },
+	{ href: '/zh/devlog/', label: '开发日志' },
+	{ href: '/zh/support/', label: '支持' }
+] : [
+	{ href: '/', label: 'Home' },
+	{ href: '/about/', label: 'About' },
+	{ href: '/download/', label: 'Download' },
+	{ href: '/devlog/', label: 'Dev Log' },
+	{ href: '/support/', label: 'Support' }
+];
+
+const langSwitchLabel = isZH ? '中文' : 'English';
+const otherLangHref = isZH ? '/' : '/zh/';
+const otherLangLabel = isZH ? 'English' : '中文';
+---
+
+<nav class="nav">
+	<div class="container nav-inner">
+		<a href={isZH ? '/zh/' : '/'} class="nav-logo">
+			<img src="/assets/images/icons/logo.webp" alt="Toona logo" width="32" height="32" style="border-radius: 8px;">
+			{isZH ? '吐纳' : 'Toona'}
+		</a>
+
+		<div class="nav-links">
+			{navLinks.map(link => (
+				<a href={link.href}>{link.label}</a>
+			))}
+			
+			<div class="lang-switcher">
+				<button class="lang-btn">{langSwitchLabel}</button>
+				<div class="lang-dropdown">
+					<a href={otherLangHref}>{otherLangLabel}</a>
+				</div>
+			</div>
+		</div>
+
+		<button class="hamburger" aria-label="Menu">
+			<span></span>
+			<span></span>
+			<span></span>
+		</button>
+	</div>
+</nav>
+
+<style>
+	.nav {
+		height: 64px;
+		background: rgba(238, 242, 240, 0.85);
+		backdrop-filter: blur(12px);
+		border-bottom: 1px solid #E5E7EB;
+		position: fixed;
+		top: 0; left: 0; right: 0;
+		z-index: 1000;
+		display: flex;
+		align-items: center;
+	}
+	.nav-inner {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+	.nav-logo {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		font-weight: 700;
+		font-size: 1.125rem;
+		color: #7B4FA6;
+	}
+	.nav-links {
+		display: flex;
+		align-items: center;
+		gap: 2rem;
+		font-size: 0.875rem;
+		font-weight: 500;
+	}
+	.nav-links a:hover { color: #7B4FA6; }
+	
+	.lang-switcher { position: relative; }
+	.lang-btn {
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+		color: #6B7280;
+		cursor: pointer;
+	}
+	.lang-btn::after { content: ' ▾'; font-size: 0.65rem; }
+	
+	.lang-dropdown {
+		position: absolute;
+		top: 100%; right: 0;
+		background: white;
+		border: 1px solid #E5E7EB;
+		border-radius: 0.5rem;
+		display: none;
+		min-width: 100px;
+		box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	}
+	.lang-switcher:hover .lang-dropdown { display: block; }
+	.lang-dropdown a { display: block; padding: 0.5rem 1rem; }
+
+	.hamburger { display: none; flex-direction: column; gap: 5px; }
+	.hamburger span { width: 24px; height: 2px; background: #1A1A1A; }
+
+	@media (max-width: 768px) {
+		.nav-links { display: none; }
+		.hamburger { display: flex; }
+	}
+</style>

@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: your-github-username/ToonaWebsite # 你待会需要在这里填入你的 GitHub 仓库名
+  branch: main
+  base_url: https://toona-cms-auth.vercel.app # 后台登录验证代理（我们可以稍后配置）
+
+media_folder: "public/assets/images"
+public_folder: "/assets/images"
+
+collections:
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "home"
+        label: "Home Page (EN)"
+        file: "v2/src/content/pages/home.json"
+        fields:
+          - {label: "Hero Title", name: "heroTitle", widget: "string"}
+          - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
+          - {label: "App Store Link", name: "appStoreLink", widget: "string"}
+          - {label: "SEO Description", name: "description", widget: "string"}
+
+      - name: "home_zh"
+        label: "首页内容 (中文)"
+        file: "v2/src/content/pages/home_zh.json"
+        fields:
+          - {label: "英雄区标题", name: "heroTitle", widget: "string"}
+          - {label: "英雄区副标题", name: "heroSubtitle", widget: "text"}
+          - {label: "App Store 链接", name: "appStoreLink", widget: "string"}
+          - {label: "SEO 描述", name: "description", widget: "string"}

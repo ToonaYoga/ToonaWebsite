@@ -1,0 +1,90 @@
+/* ─── Page Hero ──────────────────────────────────────── */
+.page-hero {
+  background: var(--color-bg-dark);
+  color: var(--color-text-inverse);
+  padding-block: var(--space-20);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.page-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 60%, rgba(123,79,166,0.4) 0%, transparent 65%);
+  pointer-events: none;
+}
+.page-hero-inner { position: relative; max-width: 680px; margin-inline: auto; }
+.page-hero .hero-tag { margin-bottom: var(--space-4); }
+.page-hero h1 { font-size: var(--font-size-4xl); margin-bottom: var(--space-4); }
+.page-hero p  { color: #9CA3AF; font-size: var(--font-size-lg); }
+
+/* ─── Mission ────────────────────────────────────────── */
+.mission { background: var(--color-bg); }
+.mission-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-16);
+  align-items: center;
+}
+.mission-content h2 { margin-bottom: var(--space-4); }
+.mission-content p  { margin-bottom: var(--space-4); }
+.mission-visual {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  border-radius: var(--radius-xl);
+  padding: var(--space-12);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+.mission-stat {
+  text-align: center;
+  color: white;
+}
+.mission-stat h3 { font-size: var(--font-size-4xl); color: var(--color-accent-teal); }
+.mission-stat p  { color: rgba(255,255,255,0.7); margin-top: var(--space-1); }
+
+/* ─── Values ─────────────────────────────────────────── */
+.values { background: var(--color-bg-dark); color: var(--color-text-inverse); }
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+  margin-top: var(--space-12);
+}
+.value-card {
+  background: var(--color-bg-card-dark);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  border: 1px solid var(--color-border-dark);
+}
+.value-card .icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-4);
+}
+.value-card h3 { font-size: var(--font-size-xl); margin-bottom: var(--space-2); }
+.value-card p  { color: #9CA3AF; }
+
+/* ─── Story ──────────────────────────────────────────── */
+.story { background: var(--color-bg); }
+.story-inner { max-width: 720px; margin-inline: auto; text-align: center; }
+.story-inner h2 { margin-bottom: var(--space-6); }
+.story-inner p  { margin-bottom: var(--space-4); font-size: var(--font-size-lg); }
+.story-inner p:last-child { margin-bottom: 0; }
+
+/* ─── CTA ────────────────────────────────────────────── */
+.about-cta {
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-primary));
+  color: white;
+  text-align: center;
+  padding-block: var(--space-20);
+}
+.about-cta h2 { margin-bottom: var(--space-3); }
+.about-cta p  { color: rgba(255,255,255,0.75); margin-bottom: var(--space-8); }
+
+/* ─── Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .page-hero h1 { font-size: var(--font-size-3xl); }
+  .mission-inner { grid-template-columns: 1fr; }
+  .values-grid { grid-template-columns: 1fr; }
+}

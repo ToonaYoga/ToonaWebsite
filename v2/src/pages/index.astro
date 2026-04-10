@@ -1,0 +1,99 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Nav from '../components/Nav.astro';
+import homeData from '../content/pages/home.json';
+---
+
+<MainLayout title={homeData.description} description={homeData.description}>
+	<Nav lang="en" />
+	
+	<main>
+		<section class="hero">
+			<div class="container hero-inner">
+				<div class="hero-content">
+					<span class="hero-tag">New Version 2.0 Live</span>
+					<h1 set:html={homeData.heroTitle.replace(',', ',<br>')}></h1>
+					<p>{homeData.heroSubtitle}</p>
+					<div class="hero-actions">
+						<a href={homeData.appStoreLink} class="btn btn-primary">Download App</a>
+						<a href="/about/" class="btn btn-outline">Learn More</a>
+					</div>
+				</div>
+				<div class="hero-image">
+					<!-- In Astro, we can use the <Image /> component for auto-optimization later -->
+					<img src="/assets/images/hero-mockup.webp" alt="Toona App Preview" width="420" height="850">
+				</div>
+			</div>
+		</section>
+
+		<!-- Other sections will go here -->
+	</main>
+
+	<!-- Footer Component would go here -->
+</MainLayout>
+
+<style>
+	.container {
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+	}
+	.hero {
+		background: #1A1A1A;
+		color: white;
+		padding: 8rem 0 4rem;
+		min-height: 80vh;
+		display: flex;
+		align-items: center;
+		overflow: hidden;
+	}
+	.hero-inner {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 4rem;
+		align-items: center;
+	}
+	.hero-tag {
+		display: inline-block;
+		background: rgba(123, 79, 166, 0.2);
+		color: #4ECDC4;
+		border: 1px solid rgba(78, 205, 196, 0.2);
+		padding: 0.25rem 0.75rem;
+		border-radius: 99px;
+		font-size: 0.875rem;
+		margin-bottom: 1rem;
+	}
+	.hero h1 {
+		font-size: 4rem;
+		line-height: 1.1;
+		margin-bottom: 1.5rem;
+	}
+	.hero p {
+		font-size: 1.25rem;
+		color: #9CA3AF;
+		margin-bottom: 2.5rem;
+		max-width: 480px;
+	}
+	.hero-actions { display: flex; gap: 1rem; }
+	
+	.btn {
+		padding: 0.75rem 2rem;
+		border-radius: 99px;
+		font-weight: 600;
+		transition: transform 0.2s;
+	}
+	.btn:hover { transform: translateY(-2px); }
+	.btn-primary { background: #7B4FA6; color: white; }
+	.btn-outline { border: 2px solid rgba(255,255,255,0.2); color: white; }
+
+	.hero-image img {
+		box-shadow: 0 24px 64px rgba(0,0,0,0.5);
+		border-radius: 2.5rem;
+	}
+
+	@media (max-width: 768px) {
+		.hero-inner { grid-template-columns: 1fr; text-align: center; }
+		.hero-actions { justify-content: center; }
+		.hero h1 { font-size: 3rem; }
+	}
+</style>

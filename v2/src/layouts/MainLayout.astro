@@ -1,0 +1,69 @@
+---
+interface Props {
+	title: string;
+	description?: string;
+	lang?: string;
+	canonical?: string;
+}
+
+const { 
+	title, 
+	description = "Toona is a minimalist breathing training app. Master Box Breathing, 4-7-8 Sleep techniques, and custom patterns.", 
+	lang = "en",
+	canonical = Astro.url.href
+} = Astro.props;
+
+// Determine alternate links
+const isZH = lang === 'zh';
+const enHref = isZH ? Astro.url.href.replace('/zh/', '/') : Astro.url.href;
+const zhHref = isZH ? Astro.url.href : Astro.url.href.replace('.yoga/', '.yoga/zh/');
+---
+
+<!doctype html>
+<html lang={lang}>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		
+		<!-- SEO: Canonical and Hreflang -->
+		<link rel="canonical" href={canonical} />
+		<link rel="alternate" hreflang="en" href={enHref} />
+		<link rel="alternate" hreflang="zh" href={zhHref} />
+		<link rel="alternate" hreflang="x-default" href={enHref} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--color-primary: #7B4FA6;
+		--color-primary-light: #9B6FC6;
+		--color-bg: #EEF2F0;
+		--color-text: #1A1A1A;
+		--color-text-muted: #6B7280;
+		--color-text-inverse: #FFFFFF;
+		--font-sans: 'Inter', -apple-system, sans-serif;
+	}
+	
+	* { box-sizing: border-box; margin: 0; padding: 0; }
+	
+	body {
+		font-family: var(--font-sans);
+		background-color: var(--color-bg);
+		color: var(--color-text);
+		line-height: 1.5;
+	}
+	
+	img { max-width: 100%; height: auto; display: block; }
+	a { color: inherit; text-decoration: none; }
+</style>
