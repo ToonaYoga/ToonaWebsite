@@ -3,10 +3,6 @@
   "logo_zh": "吐纳: 呼吸 & 凝神",
   "links_en": [
     {
-      "label": "Home",
-      "href": "/"
-    },
-    {
       "label": "About",
       "href": "/about/"
     },
@@ -24,10 +20,6 @@
     }
   ],
   "links_zh": [
-    {
-      "label": "首页",
-      "href": "/zh/"
-    },
     {
       "label": "关于",
       "href": "/zh/about/"
