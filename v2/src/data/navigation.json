@@ -7,16 +7,16 @@
       "href": "/about/"
     },
     {
-      "label": "Download",
-      "href": "/download/"
-    },
-    {
       "label": "Dev Log",
       "href": "/devlog/"
     },
     {
       "label": "Support",
       "href": "/support/"
+    },
+    {
+      "label": "Download",
+      "href": "/download/"
     }
   ],
   "links_zh": [
@@ -25,16 +25,16 @@
       "href": "/zh/about/"
     },
     {
-      "label": "下载",
-      "href": "/zh/download/"
-    },
-    {
       "label": "开发日志",
       "href": "/zh/devlog/"
     },
     {
       "label": "支持",
       "href": "/zh/support/"
+    },
+    {
+      "label": "下载",
+      "href": "/zh/download/"
     }
   ]
 }
