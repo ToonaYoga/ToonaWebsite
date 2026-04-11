@@ -6,7 +6,7 @@
   },
   "stats": [
     {
-      "value": "2",
+      "value": "3",
       "label": "Months from idea to v1.0"
     },
     {
@@ -14,7 +14,7 @@
       "label": "Solo Developer"
     },
     {
-      "value": "v1.0",
+      "value": "v1.0.1",
       "label": "Current Version"
     },
     {
@@ -81,7 +81,7 @@
       "date": "Coming Next",
       "status": "🔮 Planned",
       "statusType": "planned",
-      "title": "v1.1.0 — What's Next",
+      "title": "v1.0.2 — What's Next",
       "description": "Still planning. If you have ideas or feedback, I'd love to hear from you.",
       "items": [
         "Android Version",
