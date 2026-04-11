@@ -68,6 +68,7 @@ const otherLangLabel = isZH ? 'English' : '中文';
 		font-weight: 700;
 		font-size: 1.125rem;
 		color: #7B4FA6;
+		z-index: 1001;
 	}
 	.nav-links {
 		display: flex;
@@ -101,11 +102,86 @@ const otherLangLabel = isZH ? 'English' : '中文';
 	.lang-switcher:hover .lang-dropdown { display: block; }
 	.lang-dropdown a { display: block; padding: 0.5rem 1rem; }
 
-	.hamburger { display: none; flex-direction: column; gap: 5px; }
-	.hamburger span { width: 24px; height: 2px; background: #1A1A1A; }
+	.hamburger { 
+		display: none; 
+		flex-direction: column; 
+		gap: 5px; 
+		cursor: pointer;
+		padding: 4px;
+		border: none;
+		background: none;
+		z-index: 1001;
+	}
+	.hamburger span { 
+		width: 24px; 
+		height: 2px; 
+		background: #1A1A1A; 
+		transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+		transform-origin: center;
+	}
 
 	@media (max-width: 768px) {
-		.nav-links { display: none; }
+		.nav-links { 
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			background: white;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			gap: 2.5rem;
+			font-size: 1.25rem;
+			z-index: 999;
+		}
+
+		.nav.active .nav-links { 
+			display: flex; 
+		}
+
 		.hamburger { display: flex; }
+
+		/* Hamburger Animation */
+		.nav.active .hamburger span:nth-child(1) {
+			transform: translateY(7px) rotate(45deg);
+		}
+		.nav.active .hamburger span:nth-child(2) {
+			opacity: 0;
+		}
+		.nav.active .hamburger span:nth-child(3) {
+			transform: translateY(-7px) rotate(-45deg);
+		}
+		
+		.nav.active .lang-dropdown {
+			position: static;
+			display: block;
+			box-shadow: none;
+			border: none;
+			text-align: center;
+		}
+		.nav.active .lang-btn::after { display: none; }
 	}
 </style>
+
+<script>
+	const hamburger = document.querySelector('.hamburger');
+	const nav = document.querySelector('.nav');
+
+	hamburger?.addEventListener('click', () => {
+		nav?.classList.toggle('active');
+		// Prevent scrolling when menu is open
+		document.body.style.overflow = nav?.classList.contains('active') ? 'hidden' : '';
+	});
+
+	// Close menu when a link is clicked
+	const navLinks = document.querySelectorAll('.nav-links a');
+	navLinks.forEach(link => {
+		link.addEventListener('click', () => {
+			nav?.classList.remove('active');
+			document.body.style.overflow = '';
+		});
+	});
+</script>
+
