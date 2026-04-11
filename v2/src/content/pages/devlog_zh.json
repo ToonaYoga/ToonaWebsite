@@ -5,10 +5,22 @@
     "subtitle": "一个开发者，一款呼吸应用。真实记录这段旅程——成功、bug，以及一切发生的事。"
   },
   "stats": [
-    { "value": "2", "label": "从想法到 v1.0 的月数" },
-    { "value": "1", "label": "独立开发者" },
-    { "value": "v1.0", "label": "当前版本" },
-    { "value": "🚀", "label": "App Store 已上线" }
+    {
+      "value": "3",
+      "label": "从想法到 v1.0 的月数"
+    },
+    {
+      "value": "1",
+      "label": "独立开发者"
+    },
+    {
+      "value": "v1.0.1",
+      "label": "当前版本"
+    },
+    {
+      "value": "🚀",
+      "label": "App Store 已上线"
+    }
   ],
   "timeline": [
     {
@@ -62,7 +74,7 @@
       "date": "即将到来",
       "status": "🔮 计划中",
       "statusType": "planned",
-      "title": "v1.1.0 — 下一步",
+      "title": "v1.0.2 — 下一步",
       "description": "还在规划中。如果你有想法或反馈，欢迎联系我。",
       "items": [
         "Android 版本",
