@@ -21,7 +21,7 @@ const zhPath = isZH ? currentPath : `/zh${currentPath.startsWith('/') ? '' : '/'
 		<!-- Logo -->
 		<a href={isZH ? '/zh/' : '/'} class="nav-logo">
 			<img src="/assets/images/icons/logo.webp" alt="Toona logo" width="32" height="32" style="border-radius: 8px;">
-			{logoText}
+			<span>{logoText}</span>
 		</a>
 
 		<!-- Desktop Nav -->
@@ -141,6 +141,7 @@ const zhPath = isZH ? currentPath : `/zh${currentPath.startsWith('/') ? '' : '/'
 		padding: 2px;
 		gap: 0;
 		border: 1px solid rgba(255, 255, 255, 0.05);
+		flex-shrink: 0; /* Add this to prevent squashing */
 	}
 	.lang-opt {
 		padding: 4px 12px;
@@ -251,8 +252,21 @@ const zhPath = isZH ? currentPath : `/zh${currentPath.startsWith('/') ? '' : '/'
 
 	@media (max-width: 768px) {
 		.nav-links { display: none; }
-		.mobile-right { display: flex; }
+		.mobile-right { display: flex; flex-shrink: 0; }
 		
+		.nav-logo {
+			max-width: 160px; /* Prevent long logo text from taking over mobile header */
+			font-size: 1rem;
+		}
+		.nav-logo span {
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		/* Fix: Allow nav to expand when mobile menu is open */
+		.nav.open { height: auto; padding-bottom: 0; }
+
 		/* X shape for hamburger */
 		.nav.open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 		.nav.open .hamburger span:nth-child(2) { opacity: 0; }
