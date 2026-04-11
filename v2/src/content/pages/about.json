@@ -1,0 +1,55 @@
+{
+  "hero": {
+    "tag": "✦ Our Story",
+    "title": "Breathing is the one thing\nwe do all day — let's do it well.",
+    "subtitle": "Toona was built on a simple belief: that conscious breathing is one of the most powerful tools we have, and everyone deserves easy access to it."
+  },
+  "mission": {
+    "tag": "🎯 Our Mission",
+    "title": "Make calm accessible\nto everyone.",
+    "descriptions": [
+      "We live in a world that rarely slows down. Stress, distraction, and shallow breathing have become the default. Toona exists to change that — one breath at a time.",
+      "We believe that a few minutes of intentional breathing each day can meaningfully improve focus, reduce anxiety, and help people feel more at home in their own bodies."
+    ],
+    "stats": [
+      { "label": "Average daily session", "value": "5 min" },
+      { "label": "Reported improvement in focus", "value": "3×" },
+      { "label": "Breaths worth taking", "value": "∞" }
+    ]
+  },
+  "values": {
+    "title": "What we stand for",
+    "subtitle": "Three principles guide everything we build at Toona.",
+    "items": [
+      {
+        "icon": "🧘",
+        "title": "Simplicity",
+        "description": "Breathing should feel effortless. We remove friction so you can focus on what matters — the breath itself."
+      },
+      {
+        "icon": "🔬",
+        "title": "Science-backed",
+        "description": "Every pattern in Toona is grounded in research. Box breathing, 4-7-8, resonance — these techniques have real, measurable effects."
+      },
+      {
+        "icon": "🌱",
+        "title": "Consistency",
+        "description": "One session won't change your life. A daily habit will. We design every feature to help you show up, day after day."
+      }
+    ]
+  },
+  "story": {
+    "tag": "📖 How it started",
+    "title": "Born from a personal need.",
+    "paragraphs": [
+      "Toona started as a personal project — a simple tool to practice box breathing before stressful meetings. What began as a few lines of code quickly grew into something more: a full breathing companion that adapts to your pace, your goals, and your life.",
+      "It started with a moment of frustration. Instead of letting anger take over, I took a few deep breaths — and it worked. That simple act of conscious breathing changed how I responded to stress. I wanted to build something that made it easy for anyone to do the same.",
+      "The little fish in our logo isn't just a mascot. It's a reminder that even underwater, life finds a rhythm. Toona is here to help you find yours."
+    ]
+  },
+  "cta": {
+    "title": "Ready to start breathing better?",
+    "description": "Download Toona and take your first breath with intention.",
+    "button": "Download on App Store"
+  }
+}

@@ -7,184 +7,256 @@ const isZH = lang === 'zh';
 const navLinks = isZH ? navigation.links_zh : navigation.links_en;
 const logoText = isZH ? navigation.logo_zh : navigation.logo;
 
-const langSwitchLabel = isZH ? '中文' : 'English';
-const otherLangHref = isZH ? '/' : '/zh/';
-const otherLangLabel = isZH ? 'English' : '中文';
+const appStoreUrl = 'https://apps.apple.com/us/app/toona-breathing-focus/id6761040533';
+const downloadLabel = isZH ? '下载应用' : 'Download';
+
+// Logic for switching language while staying on the same page
+const currentPath = Astro.url.pathname;
+const enPath = isZH ? currentPath.replace(/^\/zh(\/|$)/, '/') : currentPath;
+const zhPath = isZH ? currentPath : `/zh${currentPath.startsWith('/') ? '' : '/'}${currentPath}`.replace(/\/+/g, '/');
 ---
 
 <nav class="nav">
 	<div class="container nav-inner">
+		<!-- Logo -->
 		<a href={isZH ? '/zh/' : '/'} class="nav-logo">
 			<img src="/assets/images/icons/logo.webp" alt="Toona logo" width="32" height="32" style="border-radius: 8px;">
 			{logoText}
 		</a>
 
+		<!-- Desktop Nav -->
 		<div class="nav-links">
 			{navLinks.map(link => (
 				<a href={link.href}>{link.label}</a>
 			))}
-			
-			<div class="lang-switcher">
-				<button class="lang-btn">{langSwitchLabel}</button>
-				<div class="lang-dropdown">
-					<a href={otherLangHref}>{otherLangLabel}</a>
-				</div>
+
+			<!-- Language Toggle Pill -->
+			<div class="lang-toggle">
+				<a href={enPath} class={`lang-opt ${!isZH ? 'active' : ''}`}>EN</a>
+				<a href={zhPath} class={`lang-opt ${isZH ? 'active' : ''}`}>中文</a>
 			</div>
+
+			<!-- Download CTA -->
+			<a href={appStoreUrl} class="btn-cta" target="_blank" rel="noopener">
+				<svg width="16" height="16" viewBox="0 0 14 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
+					<path d="M11.44 8.52c-.02-1.96 1.6-2.9 1.67-2.95-0.91-1.34-2.33-1.52-2.84-1.54-1.21-.12-2.37.72-2.98.72-.62 0-1.57-.7-2.58-.68-1.33.02-2.56.78-3.24 1.97-1.38 2.4-.35 5.96 1 7.9.66.96 1.44 2.03 2.47 1.99 1-.04 1.37-.64 2.57-.64 1.2 0 1.53.64 2.58.62 1.07-.02 1.74-1 2.39-1.96.76-1.12 1.07-2.21 1.09-2.27-.02-.01-2.1-.81-2.13-3.16zM9.47 2.7C10.02 2.03 10.4 1.1 10.29.15c-.82.04-1.81.55-2.39 1.21-.52.59-.98 1.55-.86 2.46.9.07 1.83-.46 2.43-1.12z"/>
+				</svg>
+				<span class="cta-text">{downloadLabel}</span>
+			</a>
 		</div>
 
-		<button class="hamburger" aria-label="Menu">
-			<span></span>
-			<span></span>
-			<span></span>
-		</button>
+		<!-- Mobile Right (lang toggle + hamburger) -->
+		<div class="mobile-right">
+			<div class="lang-toggle mobile">
+				<a href={enPath} class={`lang-opt ${!isZH ? 'active' : ''}`}>EN</a>
+				<a href={zhPath} class={`lang-opt ${isZH ? 'active' : ''}`}>中文</a>
+			</div>
+			<button class="hamburger" aria-label="Menu">
+				<span></span>
+				<span></span>
+				<span></span>
+			</button>
+		</div>
+	</div>
+
+	<!-- Mobile Menu Dropdown -->
+	<div class="mobile-menu">
+		<div class="mobile-menu-inner">
+			{navLinks.map(link => (
+				<a href={link.href} class="mobile-link">{link.label}</a>
+			))}
+			<a href={appStoreUrl} class="btn-cta mobile-cta" target="_blank" rel="noopener">
+				<svg width="16" height="16" viewBox="0 0 14 16" fill="currentColor" xmlns="http://www.w3.org/2000/svg" style="margin-right: 6px;">
+					<path d="M11.44 8.52c-.02-1.96 1.6-2.9 1.67-2.95-0.91-1.34-2.33-1.52-2.84-1.54-1.21-.12-2.37.72-2.98.72-.62 0-1.57-.7-2.58-.68-1.33.02-2.56.78-3.24 1.97-1.38 2.4-.35 5.96 1 7.9.66.96 1.44 2.03 2.47 1.99 1-.04 1.37-.64 2.57-.64 1.2 0 1.53.64 2.58.62 1.07-.02 1.74-1 2.39-1.96.76-1.12 1.07-2.21 1.09-2.27-.02-.01-2.1-.81-2.13-3.16zM9.47 2.7C10.02 2.03 10.4 1.1 10.29.15c-.82.04-1.81.55-2.39 1.21-.52.59-.98 1.55-.86 2.46.9.07 1.83-.46 2.43-1.12z"/>
+				</svg>
+				{downloadLabel}
+			</a>
+		</div>
 	</div>
 </nav>
 
 <style>
+	/* ── Base Nav with Frosted Glass Look and Brand Color ── */
 	.nav {
 		height: 64px;
-		background: rgba(238, 242, 240, 0.85);
-		backdrop-filter: blur(12px);
-		border-bottom: 1px solid #E5E7EB;
+		background: rgba(123, 79, 166, 0.85); /* Proper Brand Color with transparency */
+		backdrop-filter: blur(20px);
+		-webkit-backdrop-filter: blur(20px);
+		border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 		position: fixed;
 		top: 0; left: 0; right: 0;
 		z-index: 1000;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+		transition: all 0.3s ease;
+	}
+	
+	.container {
+		max-width: 1120px;
+		margin: 0 auto;
+		padding: 0 1.5rem;
+		width: 100%;
 	}
 	.nav-inner {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		width: 100%;
-		max-width: 1120px;
-		margin: 0 auto;
-		padding: 0 1.5rem;
+		height: 64px;
 	}
+
+	/* ── Logo ── */
 	.nav-logo {
 		display: flex;
 		align-items: center;
 		gap: 0.75rem;
 		font-weight: 700;
 		font-size: 1.125rem;
-		color: #7B4FA6;
-		z-index: 1001;
+		color: white;
+		text-decoration: none;
+		flex-shrink: 0;
 	}
+
+	/* ── Links ── */
 	.nav-links {
 		display: flex;
 		align-items: center;
-		gap: 2rem;
-		font-size: 0.875rem;
+		gap: 1.8rem;
+		font-size: 0.9rem;
 		font-weight: 500;
 	}
-	.nav-links a:hover { color: #7B4FA6; }
-	
-	.lang-switcher { position: relative; }
-	.lang-btn {
+	.nav-links a:not(.btn-cta):not(.lang-opt) {
+		color: rgba(255, 255, 255, 0.85);
+		text-decoration: none;
+		transition: color 0.2s;
+	}
+	.nav-links a:hover { color: white; }
+
+	/* ── Premium Toggle Pill for Language ── */
+	.lang-toggle {
 		display: flex;
 		align-items: center;
-		gap: 0.25rem;
-		color: #6B7280;
-		cursor: pointer;
+		background: rgba(0, 0, 0, 0.2);
+		border-radius: 99px;
+		padding: 2px;
+		gap: 0;
+		border: 1px solid rgba(255, 255, 255, 0.05);
 	}
-	.lang-btn::after { content: ' ▾'; font-size: 0.65rem; }
-	
-	.lang-dropdown {
-		position: absolute;
-		top: 100%; right: 0;
+	.lang-opt {
+		padding: 4px 12px;
+		border-radius: 99px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		color: rgba(255, 255, 255, 0.7);
+		text-decoration: none;
+		transition: all 0.2s ease;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 40px;
+	}
+	.lang-opt.active {
 		background: white;
-		border: 1px solid #E5E7EB;
-		border-radius: 0.5rem;
-		display: none;
-		min-width: 100px;
-		box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+		color: #7B4FA6 !important; /* Brand purple text when active */
+		box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 	}
-	.lang-switcher:hover .lang-dropdown { display: block; }
-	.lang-dropdown a { display: block; padding: 0.5rem 1rem; }
+	.lang-opt:not(.active):hover {
+		color: white;
+	}
 
-	.hamburger { 
-		display: none; 
-		flex-direction: column; 
-		gap: 5px; 
+	/* ── High-end Download Button ── */
+	.btn-cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		background: white;
+		color: #7B4FA6 !important; /* Ensure text is visible as Brand Purple */
+		padding: 6px 16px;
+		border-radius: 99px;
+		font-size: 0.85rem;
+		font-weight: 700;
+		text-decoration: none;
+		transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+		white-space: nowrap;
+	}
+	.cta-text {
+		color: #7B4FA6; /* Explicitly set text color */
+	}
+	.btn-cta:hover {
+		transform: scale(1.05);
+		box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+		background: #ffffff;
+	}
+
+	/* ── Mobile UI ── */
+	.mobile-right {
+		display: none;
+		align-items: center;
+		gap: 1rem;
+	}
+	.lang-toggle.mobile {
+		padding: 2px;
+		background: rgba(0, 0, 0, 0.15);
+	}
+
+	.hamburger {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
 		cursor: pointer;
 		padding: 4px;
 		border: none;
 		background: none;
-		z-index: 1001;
 	}
-	.hamburger span { 
-		width: 24px; 
-		height: 2px; 
-		background: #1A1A1A; 
-		transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-		transform-origin: center;
+	.hamburger span {
+		width: 24px;
+		height: 2px;
+		background: white;
+		border-radius: 2px;
+		transition: 0.3s ease;
+	}
+
+	.mobile-menu {
+		display: none;
+		background: #6B3F96;
+		overflow: hidden;
+		transition: max-height 0.3s ease;
+		max-height: 0;
+	}
+	.nav.open .mobile-menu {
+		display: block;
+		max-height: 400px;
+	}
+	
+	.mobile-menu-inner {
+		padding: 1rem 1.5rem 2rem;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+	}
+	.mobile-link {
+		padding: 12px 0;
+		color: rgba(255, 255, 255, 0.9);
+		text-decoration: none;
+		font-size: 1.1rem;
+		font-weight: 600;
+		border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+	}
+	.mobile-cta {
+		margin-top: 1rem;
+		padding: 14px;
+		font-size: 1rem;
 	}
 
 	@media (max-width: 768px) {
-		.nav-links { 
-			display: none;
-			position: absolute;
-			top: 64px;
-			left: 0;
-			right: 0;
-			background: white;
-			flex-direction: column;
-			align-items: flex-start;
-			padding: 1.5rem 2.5rem;
-			gap: 1.25rem;
-			border-bottom: 1px solid #E5E7EB;
-			box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
-			z-index: 999;
-			animation: slideDown 0.3s ease-out;
-		}
-
-		@keyframes slideDown {
-			from { opacity: 0; transform: translateY(-10px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
-
-		.nav.active .nav-links { 
-			display: flex; 
-		}
-
-		.hamburger { display: flex; }
-
-		/* Mobile Link Styles */
-		.nav-links a {
-			width: 100%;
-			padding: 0.5rem 0;
-			font-size: 1.05rem;
-			color: #1A1A1A;
-			border-bottom: 1px solid #F3F4F6;
-		}
-		.nav-links a:last-child { border-bottom: none; }
-
-		/* Hamburger Animation */
-		.nav.active .hamburger span:nth-child(1) {
-			transform: translateY(7px) rotate(45deg);
-		}
-		.nav.active .hamburger span:nth-child(2) {
-			opacity: 0;
-		}
-		.nav.active .hamburger span:nth-child(3) {
-			transform: translateY(-7px) rotate(-45deg);
-		}
+		.nav-links { display: none; }
+		.mobile-right { display: flex; }
 		
-		/* Language Switcher in Mobile */
-		.lang-switcher { width: 100%; margin-top: 0.5rem; }
-		.nav.active .lang-dropdown {
-			position: static;
-			display: block;
-			box-shadow: none;
-			border: none;
-			padding-left: 1rem;
-			margin-top: 0.5rem;
-		}
-		.nav.active .lang-btn {
-			font-weight: 600;
-			color: #7B4FA6;
-		}
-		.nav.active .lang-btn::after { display: none; }
+		/* X shape for hamburger */
+		.nav.open .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+		.nav.open .hamburger span:nth-child(2) { opacity: 0; }
+		.nav.open .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 	}
 </style>
 
@@ -193,18 +265,13 @@ const otherLangLabel = isZH ? 'English' : '中文';
 	const nav = document.querySelector('.nav');
 
 	hamburger?.addEventListener('click', () => {
-		nav?.classList.toggle('active');
-		// Prevent scrolling when menu is open
-		document.body.style.overflow = nav?.classList.contains('active') ? 'hidden' : '';
+		nav?.classList.toggle('open');
 	});
 
-	// Close menu when a link is clicked
-	const navLinks = document.querySelectorAll('.nav-links a');
-	navLinks.forEach(link => {
+	// Close menu on navigation
+	document.querySelectorAll('.mobile-link, .mobile-cta').forEach(link => {
 		link.addEventListener('click', () => {
-			nav?.classList.remove('active');
-			document.body.style.overflow = '';
+			nav?.classList.remove('open');
 		});
 	});
 </script>
-

@@ -14,13 +14,23 @@
     .preview-section { padding: 60px 40px; }
     .preview-container { max-width: 1000px; margin: 0 auto; width: 100%; }
     
-    /* Hero 改进：加入横向布局 */
     .preview-hero {
       background: #1A1A1A;
       color: white;
       padding: 100px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+    .preview-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 60%, rgba(123, 79, 166, 0.4) 0%, transparent 65%);
+      pointer-events: none;
     }
     .preview-hero-inner {
+      position: relative;
+      z-index: 1;
       display: flex;
       gap: 50px;
       align-items: center;
@@ -64,9 +74,9 @@
       text-decoration: none;
     }
 
-    .preview-features { background: white; text-align: center; }
-    .preview-features h2 { font-size: 36px; margin-bottom: 10px; color: #1A1A1A; }
-    .preview-features > p { color: #6B7280; font-size: 18px; }
+    .preview-features { text-align: center; }
+    .preview-features h2 { font-size: 36px; margin-bottom: 10px; color: white; }
+    .preview-features > p { color: #9CA3AF; font-size: 18px; }
     .preview-features-grid { 
       display: grid; 
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
@@ -76,11 +86,13 @@
     .preview-card {
       padding: 32px;
       border-radius: 24px;
-      background: white;
-      border: 1px solid #E5E7EB;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
       text-align: left;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.03);
     }
+    .preview-card h3 { color: white; }
+    .preview-card p { color: #9CA3AF !important; }
     .preview-icon {
       width: 48px; height: 48px;
       border-radius: 50%;
@@ -89,13 +101,14 @@
       font-size: 24px;
     }
 
-    .preview-showcase { background: #1A1A1A; color: white; }
-    .preview-showcase-inner { display: flex; gap: 60px; align-items: center; }
+    .preview-showcase { color: white; position: relative; overflow: hidden; background: transparent; }
+    .preview-showcase::before { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 60%, rgba(123, 79, 166, 0.4) 0%, transparent 65%); pointer-events: none; }
+    .preview-showcase-inner { position: relative; z-index: 1; display: flex; gap: 60px; align-items: center; }
     .preview-showcase-content { flex: 1; text-align: left; }
     .preview-showcase-screen { flex: 1; display: flex; gap: 15px; justify-content: center; }
     .preview-showcase-img { width: 140px; border-radius: 24px; box-shadow: 0 20px 48px rgba(0,0,0,0.4); }
 
-    .preview-cta { background: #7B4FA6; color: white; text-align: center; }
+    .preview-cta { color: white; text-align: center; position: relative; overflow: hidden; padding: 60px 0; background: transparent; }
     .preview-cta h2 { font-size: 36px; margin-bottom: 20px; color: white; }
     .preview-cta p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
     .preview-cta .preview-btn { background: white; color: #7B4FA6; border: none; }
@@ -121,7 +134,9 @@
         // 模拟换行逻辑
         const formattedTitle = title.replace(/[，,]/g, (m) => m + '<br>');
 
-        return h('div', { className: 'preview-body' },
+        return h('div', { style: { position: 'relative' } },
+          h('div', { style: { position: 'fixed', inset: 0, backgroundColor: '#1A1A1A', backgroundImage: 'radial-gradient(ellipse at 50% 50%, rgba(123, 79, 166, 0.45) 0%, transparent 80%)', zIndex: -1 } }),
+          h('div', { className: 'preview-body', style: { color: 'white', position: 'relative' } },
           // Hero Section
           h('section', { className: 'preview-hero' },
             h('div', { className: 'preview-hero-inner' },
@@ -138,8 +153,8 @@
           ),
 
           // Features Section
-          h('section', { className: 'preview-section preview-features' },
-            h('div', { className: 'preview-container' },
+          h('section', { className: 'preview-section preview-features', style: { position: 'relative', overflow: 'hidden', background: 'transparent' } },
+            h('div', { className: 'preview-container', style: { position: 'relative', zIndex: 1 } },
               h('h2', {}, features.title),
               h('p', {}, features.subtitle),
               h('div', { className: 'preview-features-grid' },
@@ -170,19 +185,166 @@
 
           // CTA Section
           h('section', { className: 'preview-section preview-cta' },
-            h('div', { className: 'preview-container' },
+            h('div', { className: 'preview-container', style: { position: 'relative', zIndex: 1 } },
               h('h2', {}, cta.title),
               h('p', {}, cta.description),
               h('div', { className: 'preview-btn' }, 'Get Started Now')
             )
           )
+          )
         );
       }
     });
 
-    CMS.registerPreviewTemplate("home", HomePreview);
-    CMS.registerPreviewTemplate("home_zh", HomePreview);
-  </script>
+      const AboutPreview = createClass({
+        render: function() {
+          const entry = this.props.entry;
+          const hero = (entry.getIn(['data', 'hero']) || Immutable.Map()).toJS();
+          const mission = (entry.getIn(['data', 'mission']) || Immutable.Map()).toJS();
+          const values = (entry.getIn(['data', 'values']) || Immutable.Map()).toJS();
+          const story = (entry.getIn(['data', 'story']) || Immutable.Map()).toJS();
+          const cta = (entry.getIn(['data', 'cta']) || Immutable.Map()).toJS();
+
+          return h('div', { className: 'about-preview' },
+            h('section', { className: 'page-hero', style: { background: '#1A1A1A', color: 'white', paddingTop: '10rem', paddingBottom: '6rem', textAlign: 'center', position: 'relative', overflow: 'hidden' } },
+              h('div', { style: { position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 60%, rgba(123, 79, 166, 0.4) 0%, transparent 65%)', pointerEvents: 'none'} }),
+              h('div', { className: 'container', style: { position: 'relative', zIndex: 1 } },
+                h('span', { className: 'hero-tag', style: { background: 'rgba(123,79,166,0.2)', color: '#4ECDC4', border: '1px solid rgba(78,205,196,0.2)', borderRadius: '100px', padding: '6px 16px', fontSize: '0.875rem' } }, hero.tag),
+                h('h1', { style: { color: 'white', fontSize: '3.5rem', marginTop: '1.5rem' }, dangerouslySetInnerHTML: { __html: (hero.title || '').replace(/\n/g, '<br>') } }),
+                h('p', { style: { color: '#9CA3AF', fontSize: '1.25rem' } }, hero.subtitle)
+              )
+            ),
+            h('section', { className: 'mission section' },
+              h('div', { className: 'container mission-inner', style: { display: 'grid', gridTemplateColumns: '1.2fr 0.8fr', gap: '5rem', alignItems: 'center' } },
+                h('div', { className: 'mission-content' },
+                  h('span', { className: 'hero-tag' }, mission.tag),
+                  h('h2', { dangerouslySetInnerHTML: { __html: (mission.title || '').replace(/\n/g, '<br>') } }),
+                  (mission.descriptions || []).map(p => h('p', { style: { marginBottom: '1.5rem' } }, p))
+                ),
+                h('div', { className: 'mission-visual' },
+                  (mission.stats || []).map(stat => h('div', { className: 'mission-stat', style: { background: '#F9FAFB', padding: '2rem', borderRadius: '24px', marginBottom: '1.5rem' } },
+                    h('h3', { style: { fontSize: '2.5rem', color: '#7B4FA6', marginBottom: '0.5rem' } }, stat.value),
+                    h('p', { style: { fontSize: '0.875rem', color: '#6B7280' } }, stat.label)
+                  ))
+                )
+              )
+            ),
+            h('section', { className: 'values section', style: { background: '#1A1A1A', color: 'white', padding: '80px 0', position: 'relative', overflow: 'hidden' } },
+              h('div', { style: { position: 'absolute', inset: 0, background: 'radial-gradient(ellipse at 50% 60%, rgba(123, 79, 166, 0.4) 0%, transparent 65%)', pointerEvents: 'none'} }),
+              h('div', { className: 'container', style: { position: 'relative', zIndex: 1 } },
+                h('div', { style: { textAlign: 'center', marginBottom: '4rem' } },
+                  h('h2', { style: { fontSize: '2.5rem', color: 'white' } }, values.title),
+                  h('p', { style: { color: '#9CA3AF' } }, values.subtitle)
+                ),
+                h('div', { style: { display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '2rem' } },
+                  (values.items || []).map(item => h('div', { className: 'value-card', style: { background: 'rgba(255,255,255,0.03)', padding: '3.5rem 2rem', borderRadius: '32px', textAlign: 'center', border: '1px solid rgba(255,255,255,0.08)' } },
+                    h('div', { style: { fontSize: '3rem', marginBottom: '1.5rem' } }, item.icon),
+                    h('h3', { style: { color: 'white' } }, item.title),
+                    h('p', { style: { color: '#9CA3AF' } }, item.description)
+                  ))
+                )
+              )
+            ),
+            h('section', { className: 'story section' },
+              h('div', { className: 'container story-inner', style: { maxWidth: '800px', margin: '0 auto' } },
+                h('span', { className: 'hero-tag' }, story.tag),
+                h('h2', { style: { fontSize: '2.5rem', marginBottom: '2rem' } }, story.title),
+                (story.paragraphs || []).map(p => h('p', { style: { marginBottom: '1.5rem' } }, p))
+              )
+            ),
+            h('section', { className: 'about-cta', style: { background: '#7B4FA6', padding: '100px 0', color: 'white', textAlign: 'center' } },
+              h('div', { className: 'container' },
+                h('h2', { style: { fontSize: '2.5rem', marginBottom: '1.5rem' } }, cta.title),
+                h('p', { style: { fontSize: '1.25rem', opacity: '0.9', marginBottom: '3rem' } }, cta.description),
+                h('div', { style: { display: 'flex', justifyContent: 'center' } },
+                  h('a', { className: 'btn-download', style: { background: 'white', color: '#7B4FA6', padding: '16px 36px', borderRadius: '100px', fontWeight: '700' } }, cta.button)
+                )
+              )
+            )
+          );
+        }
+      });
+
+      const DevLogPreview = createClass({
+        render: function() {
+          const entry = this.props.entry;
+          const hero = (entry.getIn(['data', 'hero']) || Immutable.Map()).toJS();
+          const stats = (entry.getIn(['data', 'stats']) || Immutable.List()).toJS();
+          const timeline = (entry.getIn(['data', 'timeline']) || Immutable.List()).toJS();
+          const cta = (entry.getIn(['data', 'cta']) || Immutable.Map()).toJS();
+
+          return h('div', { className: 'devlog-preview' },
+            // Hero
+            h('section', { className: 'page-hero', style: { background: '#1A1A1A', color: 'white', padding: '10rem 0 6rem', textAlign: 'center', position: 'relative' } },
+              h('div', { className: 'container', style: { position: 'relative', zIndex: 1, maxWidth: '680px', margin: '0 auto' } },
+                h('span', { className: 'hero-tag', style: { display: 'inline-block', background: 'rgba(123,79,166,0.25)', color: '#4ECDC4', padding: '4px 12px', borderRadius: '999px', fontSize: '0.875rem', marginBottom: '1.5rem', border: '1px solid rgba(78,205,196,0.2)' } }, hero.tag),
+                h('h1', { style: { fontSize: '3.5rem', marginBottom: '1.5rem' }, dangerouslySetInnerHTML: { __html: (hero.title || '').replace(/\n/g, '<br>') } }),
+                h('p', { style: { color: '#9CA3AF', fontSize: '1.125rem' } }, hero.subtitle)
+              )
+            ),
+            // Stats
+            h('section', { className: 'stats-bar', style: { background: 'white', borderBottom: '1px solid #F3F4F6' } },
+              h('div', { className: 'container', style: { display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '2rem', padding: '2rem 1.5rem', textAlign: 'center' } },
+                (stats || []).map(stat => h('div', { className: 'stat-item' },
+                  h('h3', { style: { fontSize: '2rem', color: '#7B4FA6', marginBottom: '0.25rem' } }, stat.value),
+                  h('p', { style: { fontSize: '0.875rem', color: '#6B7280' } }, stat.label)
+                ))
+              )
+            ),
+            // Timeline Content Preview
+            h('section', { className: 'timeline-section', style: { padding: '100px 0', background: '#fafafa' } },
+              h('div', { className: 'container' },
+                h('div', { style: { textAlign: 'center', marginBottom: '5rem' } },
+                  h('h2', { style: { fontSize: '2.5rem', marginBottom: '1rem' } }, "The Journey So Far"),
+                  h('p', { style: { color: '#6B7280' } }, "Preview of timeline items...")
+                ),
+                h('div', { style: { maxWidth: '900px', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: '2rem' } },
+                  (timeline || []).map((item, idx) => h('div', { style: { background: 'white', padding: '2rem', borderRadius: '24px', border: '1px solid #eee' } },
+                    h('div', { style: { color: '#7B4FA6', fontWeight: 'bold', marginBottom: '1rem' } }, item.date),
+                    h('h3', { style: { fontSize: '1.5rem', marginBottom: '1rem' } }, item.title),
+                    h('span', { style: { background: '#f3e8ff', color: '#6b21a8', padding: '4px 12px', borderRadius: '100px', fontSize: '0.75rem', fontWeight: 'bold' } }, item.status),
+                    h('p', { style: { color: '#4B5563', marginTop: '1rem' } }, item.description)
+                  ))
+                )
+              )
+            )
+          );
+        }
+      });
+
+      CMS.registerPreviewTemplate("home", HomePreview);
+      CMS.registerPreviewTemplate("home_zh", HomePreview);
+      CMS.registerPreviewTemplate("about_en", AboutPreview);
+      CMS.registerPreviewTemplate("about_zh", AboutPreview);
+      CMS.registerPreviewTemplate("devlog_en", DevLogPreview);
+      CMS.registerPreviewTemplate("devlog_zh", DevLogPreview);
+
+      const SupportPreview = createClass({
+        render: function() {
+          const entry = this.props.entry;
+          const hero = (entry.getIn(['data', 'hero']) || Immutable.Map()).toJS();
+          const faq = (entry.getIn(['data', 'faq']) || Immutable.Map()).toJS();
+          const contact = (entry.getIn(['data', 'contact']) || Immutable.Map()).toJS();
+          
+          return h('div', { className: 'support-preview' },
+            h('section', { className: 'page-hero', style: { background: '#1A1A1A', color: 'white', padding: '10rem 0 6rem', textAlign: 'center' } },
+              h('div', { className: 'container' },
+                h('span', { className: 'hero-tag', style: { background: 'rgba(123,79,166,0.25)', color: '#4ECDC4', padding: '4px 12px', borderRadius: '999px', fontSize: '0.875rem', marginBottom: '1.5rem', display: 'inline-block' } }, hero.tag),
+                h('h1', { style: { fontSize: '3.5rem', marginBottom: '1.5rem' }, dangerouslySetInnerHTML: { __html: (hero.title || '').replace(/\n/g, '<br>') } }),
+                h('p', { style: { color: '#9CA3AF' } }, hero.subtitle)
+              )
+            ),
+            h('section', { style: { padding: '80px 0', background: '#fafafa', textAlign: 'center' } },
+              h('h2', { style: { fontSize: '2.5rem', marginBottom: '3rem' } }, faq.title),
+              h('p', {}, 'FAQ and Contact info will render here...') // simplified preview for brevity
+            )
+          );
+        }
+      });
+      
+      CMS.registerPreviewTemplate("support_en", SupportPreview);
+      CMS.registerPreviewTemplate("support_zh", SupportPreview);
+    </script>
 </body>
 
 

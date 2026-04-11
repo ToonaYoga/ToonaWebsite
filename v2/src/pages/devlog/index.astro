@@ -1,0 +1,222 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Nav from '../../components/Nav.astro';
+import Footer from '../../components/Footer.astro';
+import devlogData from '../../content/pages/devlog.json';
+
+const { hero, stats, timeline, cta } = devlogData;
+---
+
+<MainLayout title="Dev Log: The Journey of Building Toona">
+	<Nav lang="en" />
+	
+	<div style="position: fixed; inset: 0; background-color: #1A1A1A; background-image: radial-gradient(ellipse at 50% 50%, rgba(123, 79, 166, 0.45) 0%, transparent 80%); z-index: -1;"></div>
+	<main style="color: white; position: relative;">
+		<!-- Page Hero - Dark Theme match -->
+		<section class="page-hero">
+			<div class="hero-glow"></div>
+			<div class="container hero-content">
+				<span class="hero-tag">{hero.tag}</span>
+				<h1 set:html={hero.title.replace('\n', '<br>')}></h1>
+				<p>{hero.subtitle}</p>
+			</div>
+		</section>
+
+		<!-- Stats Bar -->
+		<section class="stats-bar">
+			<div class="container stats-inner">
+				{stats.map(stat => (
+					<div class="stat-item">
+						<h3>{stat.value}</h3>
+						<p>{stat.label}</p>
+					</div>
+				))}
+			</div>
+		</section>
+
+		<!-- Timeline Section -->
+		<section class="timeline-section">
+			<div class="container">
+				<div class="section-header">
+					<h2>The Journey So Far</h2>
+					<p>Every milestone, version update, and decision that shaped Toona.</p>
+				</div>
+
+				<div class="timeline-container">
+					<div class="timeline-line"></div>
+					
+					{timeline.map((item, index) => (
+						<div class={`timeline-item ${index % 2 === 0 ? 'left' : 'right'}`}>
+							<div class="timeline-content">
+								<div class="timeline-date">{item.date}</div>
+								<div class="timeline-card">
+									<span class={`status-badge status-${item.statusType}`}>{item.status}</span>
+									<h3>{item.title}</h3>
+									<p>{item.description}</p>
+									{item.items && item.items.length > 0 && (
+										<ul>
+											{item.items.map(li => <li>{li}</li>)}
+										</ul>
+									)}
+									{item.images && item.images.length > 0 && (
+										<div class="timeline-images">
+											{item.images.map(img => <img src={img} alt="Screenshot" />)}
+										</div>
+									)}
+								</div>
+							</div>
+							<div class="timeline-dot">
+								<div class="dot-inner"></div>
+							</div>
+						</div>
+					))}
+				</div>
+			</div>
+		</section>
+
+		<!-- CTA -->
+		<section class="devlog-cta">
+			<div class="container">
+				<h2>{cta.title}</h2>
+				<p>{cta.description}</p>
+				<div class="cta-actions">
+					<a href="https://apps.apple.com/us/app/toona-breathing-focus/id6761040533" class="btn btn-download">
+						<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v11M4 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="2" y1="16" x2="14" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+						{cta.button}
+					</a>
+					<a href="/support/" class="btn btn-secondary">{cta.secondaryButton}</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<Footer lang="en" />
+</MainLayout>
+
+<style>
+	:global(body) { background-color: #1A1A1A !important; }
+	.container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+	
+	/* Hero Section */
+	.page-hero {
+		background: transparent;
+		color: white;
+		padding: 10rem 0 6rem;
+		text-align: center;
+		position: relative;
+	}
+	.hero-glow { display: none; }
+	.hero-content { position: relative; z-index: 1; max-width: 680px; }
+	.hero-tag {
+		display: inline-block;
+		background: rgba(123, 79, 166, 0.25);
+		color: #4ECDC4;
+		font-size: 0.875rem;
+		font-weight: 600;
+		padding: 4px 12px;
+		border-radius: 999px;
+		margin-bottom: 1.5rem;
+		border: 1px solid rgba(78, 205, 196, 0.2);
+	}
+	.page-hero h1 { font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem; }
+	.page-hero p { color: #9CA3AF; font-size: 1.125rem; line-height: 1.6; }
+
+	/* Stats Bar */
+	.stats-bar { background: rgba(255,255,255,0.04); border-bottom: 1px solid rgba(255,255,255,0.08); }
+	.stats-inner { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2rem; padding: 2rem 1.5rem; }
+	.stat-item { text-align: center; }
+	.stat-item h3 { font-size: 2rem; color: #C084FC; margin-bottom: 0.25rem; }
+	.stat-item p { font-size: 0.875rem; color: #9CA3AF; font-weight: 500; }
+
+	/* Timeline Section */
+	.timeline-section { padding: 100px 0; background: transparent; }
+	.section-header { text-align: center; margin-bottom: 5rem; }
+	.section-header h2 { font-size: 2.5rem; color: white; margin-bottom: 1rem; }
+	.section-header p { color: #9CA3AF; font-size: 1.125rem; }
+
+	.timeline-container { position: relative; max-width: 900px; margin: 0 auto; padding: 40px 0; }
+	.timeline-line {
+		position: absolute;
+		left: 50%;
+		top: 0;
+		bottom: 0;
+		width: 2px;
+		background: rgba(255,255,255,0.1);
+		transform: translateX(-50%);
+	}
+
+	.timeline-item {
+		display: flex;
+		justify-content: flex-end;
+		padding-right: 50%;
+		position: relative;
+		margin-bottom: 80px;
+		width: 100%;
+	}
+	.timeline-item.right { justify-content: flex-start; padding-right: 0; padding-left: 50%; }
+
+	.timeline-content { width: 100%; padding: 0 40px; position: relative; }
+	.timeline-date {
+		font-size: 1rem;
+		font-weight: 700;
+		color: #7B4FA6;
+		margin-bottom: 0.75rem;
+	}
+	.timeline-card {
+		background: rgba(255,255,255,0.05);
+		padding: 2rem;
+		border-radius: 24px;
+		border: 1px solid rgba(255,255,255,0.08);
+		backdrop-filter: blur(10px);
+	}
+	.status-badge {
+		display: inline-block;
+		padding: 4px 12px;
+		border-radius: 100px;
+		font-size: 0.75rem;
+		font-weight: 700;
+		margin-bottom: 1rem;
+	}
+	.status-idea { background: #FEF3C7; color: #92400E; }
+	.status-building { background: #DBEAFE; color: #1E40AF; }
+	.status-review { background: #F3E8FF; color: #6B21A8; }
+	.status-live { background: #D1FAE5; color: #065F46; }
+
+	.timeline-card h3 { font-size: 1.5rem; color: white; margin-bottom: 1rem; }
+	.timeline-card p { color: #9CA3AF; line-height: 1.6; margin-bottom: 1.5rem; }
+	.timeline-card ul { padding-left: 1.25rem; color: #9CA3AF; }
+	.timeline-card li { margin-bottom: 0.5rem; }
+
+	.timeline-images { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-top: 1.5rem; }
+	.timeline-images img { width: 100%; border-radius: 12px; border: 1px solid #eee; }
+
+	.timeline-dot {
+		position: absolute;
+		left: 50%;
+		top: 10px;
+		width: 20px;
+		height: 20px;
+		background: #1A1A1A;
+		border: 4px solid #C084FC;
+		border-radius: 50%;
+		transform: translateX(-50%);
+		z-index: 2;
+	}
+
+	/* CTA */
+	.devlog-cta { background: transparent; padding: 100px 0; color: white; text-align: center; }
+	.devlog-cta h2 { font-size: 2.5rem; margin-bottom: 1.5rem; }
+	.devlog-cta p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 3rem; }
+	.cta-actions { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+	.btn-download { background: white; color: #7B4FA6; padding: 16px 36px; border-radius: 100px; font-weight: 700; display: inline-flex; align-items: center; gap: 0.75rem; text-decoration: none; }
+	.btn-secondary { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 16px 36px; border-radius: 100px; font-weight: 700; text-decoration: none; }
+
+	@media (max-width: 768px) {
+		.stats-inner { grid-template-columns: repeat(2, 1fr); }
+		.timeline-line { left: 40px; }
+		.timeline-item { padding-right: 0; padding-left: 70px; justify-content: flex-start; }
+		.timeline-item.right { padding-left: 70px; }
+		.timeline-dot { left: 40px; }
+		.timeline-content { padding: 0; }
+	}
+</style>

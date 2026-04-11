@@ -13,10 +13,6 @@
     {
       "label": "Support",
       "href": "/support/"
-    },
-    {
-      "label": "Download",
-      "href": "/download/"
     }
   ],
   "links_zh": [
@@ -31,10 +27,6 @@
     {
       "label": "支持",
       "href": "/zh/support/"
-    },
-    {
-      "label": "下载",
-      "href": "/zh/download/"
     }
   ]
 }

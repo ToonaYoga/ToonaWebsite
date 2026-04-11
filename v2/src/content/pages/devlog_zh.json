@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "tag": "✦ 开发日志",
+    "title": "从想法到 App Store，\n用了 3 个月。",
+    "subtitle": "一个开发者，一款呼吸应用。真实记录这段旅程——成功、bug，以及一切发生的事。"
+  },
+  "stats": [
+    { "value": "2", "label": "从想法到 v1.0 的月数" },
+    { "value": "1", "label": "独立开发者" },
+    { "value": "v1.0", "label": "当前版本" },
+    { "value": "🚀", "label": "App Store 已上线" }
+  ],
+  "timeline": [
+    {
+      "date": "2026 年 1 月",
+      "status": "💡 想法",
+      "statusType": "idea",
+      "title": "灵感的起点",
+      "description": "厌倦了过度复杂的健康应用，我想要一个简单的工具——只是呼吸。某个周日下午，画下了第一张草图。",
+      "items": []
+    },
+    {
+      "date": "2026 年 1 月 – 3 月",
+      "status": "🔨 开发中",
+      "statusType": "building",
+      "title": "第一个可用原型",
+      "description": "核心呼吸引擎、视觉圆圈动画，以及第一批预设模式——箱式呼吸、4-7-8、共振呼吸。",
+      "items": [
+        "呼吸阶段引擎（吸气 / 屏息 / 呼气）",
+        "动态圆圈可视化",
+        "深色 & 浅色模式",
+        "自定义呼吸模式构建器"
+      ]
+    },
+    {
+      "date": "2026 年 3 月底",
+      "status": "⏳ 审核中",
+      "statusType": "review",
+      "title": "v1.0.0 — 提交审核",
+      "description": "已提交 App Store 审核。两个月的努力，一次深呼吸。",
+      "items": [
+        "5 种呼吸预设模式",
+        "完全自定义呼吸模式",
+        "进度追踪与每周统计",
+        "环境音效（白噪音、风声、雨声）",
+        "CO₂ 耐受度测试"
+      ],
+      "images": [
+        "/assets/images/01-home-lungs-dark.webp",
+        "/assets/images/lung-light-zh.webp"
+      ]
+    },
+    {
+      "date": "2026 年 4 月 4 日",
+      "status": "🚀 已上线",
+      "statusType": "live",
+      "title": "v1.0.0 — 正式发布",
+      "description": "吐纳正式登陆 App Store。从想法到上线，整整两个月。感谢你在这里。",
+      "items": []
+    },
+    {
+      "date": "即将到来",
+      "status": "🔮 计划中",
+      "statusType": "planned",
+      "title": "v1.1.0 — 下一步",
+      "description": "还在规划中。如果你有想法或反馈，欢迎联系我。",
+      "items": [
+        "Android 版本",
+        "更多环境音效",
+        "引导式呼吸训练计划"
+      ]
+    }
+  ],
+  "cta": {
+    "title": "想一起见证这段旅程？",
+    "description": "下载吐纳，从第一天起就成为这段旅程的一部分。",
+    "button": "通过 App Store 下载",
+    "secondaryButton": "联系我们"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "tag": "✦ Support",
+    "title": "How can we help?",
+    "subtitle": "Find answers to common questions or reach out to us directly — we usually reply within 24 hours."
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "items": [
+      {
+        "question": "What breathing patterns does Toona support?",
+        "answer": "Toona includes Box breathing (4-4-4-4), 4-7-8 for sleep, Resonance (5-0-5), and a fully custom mode where you can set the exact duration for each phase (inhale, hold, exhale)."
+      },
+      {
+        "question": "How do I create a custom pattern?",
+        "answer": "Open the App, tap the settings icon. Under 'Breathing Phases', use the sliders to adjust the duration. Your custom pattern is saved automatically."
+      },
+      {
+        "question": "What is the CO₂ Tolerance Test?",
+        "answer": "The CO₂ test measures how long you can comfortably hold your breath after a normal exhale. It's a simple way to track your breathing health. A higher score generally indicates better breathing control and efficiency."
+      },
+      {
+        "question": "Is my data stored privately?",
+        "answer": "Yes. All training data is stored locally on your device. Toona does not collect or transmit any personal health data to servers. See our Privacy Policy for details."
+      },
+      {
+        "question": "Does Toona support Apple Watch?",
+        "answer": "Apple Watch support is planned for future releases. Check the Dev Log for the latest updates."
+      },
+      {
+        "question": "Is there an Android version of Toona?",
+        "answer": "Currently Toona is iOS only. An Android version is planned, keep an eye on the Dev Log for release announcements."
+      },
+      {
+        "question": "What are ambient sounds?",
+        "answer": "Ambient sounds are background audio (white noise, wind, rain, etc.) played during breathing training. They help block out distractions and create a calm training environment."
+      }
+    ]
+  },
+  "contact": {
+    "title": "Still have questions?",
+    "descriptions": [
+      "Didn't find what you need? Email us and we'll get back to you.",
+      "We're a small team (honestly just one person right now), thank you for your patience — we read every single email."
+    ],
+    "card": {
+      "icon": "✉️",
+      "title": "Email Support",
+      "description": "Bug reports, feature suggestions, or general questions.",
+      "email": "toonayoga@hotmail.com",
+      "response": "⏱ Usually replies within 24 hours"
+    }
+  },
+  "links": {
+    "title": "Quick Links",
+    "items": [
+      { "icon": "🔒", "label": "Privacy Policy", "href": "/privacy/en/PrivacyPolicy.html" },
+      { "icon": "📄", "label": "Terms of Use", "href": "/terms/en/TermsOfUse.html" },
+      { "icon": "📝", "label": "Dev Log", "href": "/devlog/" },
+      { "icon": "👋", "label": "About Toona", "href": "/about/" },
+      { "icon": "⬇️", "label": "Download App", "href": "/download/" },
+      { "icon": "✉️", "label": "Contact Us", "href": "mailto:toonayoga@hotmail.com" }
+    ]
+  }
+}

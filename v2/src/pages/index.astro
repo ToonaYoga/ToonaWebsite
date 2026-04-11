@@ -8,16 +8,17 @@ import homeData from '../content/pages/home.json';
 <MainLayout title={homeData.description} description={homeData.description}>
 	<Nav lang="en" />
 	
-	<main>
-		<section class="hero">
-			<div class="container hero-inner">
+	<div style="position: fixed; inset: 0; background-color: #1A1A1A; background-image: radial-gradient(ellipse at 50% 50%, rgba(123, 79, 166, 0.45) 0%, transparent 80%); z-index: -1;"></div>
+	<main style="color: white; position: relative;">
+		<section class="hero" style="position: relative;">
+			<div class="container hero-inner" style="position: relative; z-index: 1;">
 				<div class="hero-content">
 					<span class="hero-tag">✦ Breathing Training App</span>
 					<h1 set:html={homeData.heroTitle.replace(',', ',<br>')}></h1>
 					<p>{homeData.heroSubtitle}</p>
 					<div class="hero-actions">
-						<a href={homeData.appStoreLink} class="btn-download">
-							<svg width="16" height="18" viewBox="0 0 16 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8 1v11M4 8l4 4 4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><line x1="2" y1="16" x2="14" y2="16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+						<a href={homeData.appStoreLink} class="btn-download-white">
+							<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
 							Download on App Store
 						</a>
 					</div>
@@ -33,7 +34,7 @@ import homeData from '../content/pages/home.json';
 
 		<!-- Features -->
 		<section class="features section">
-			<div class="container">
+			<div class="container" style="position: relative; z-index: 1;">
 				<div class="section-header">
 					<h2>{homeData.features.title}</h2>
 					<p>{homeData.features.subtitle}</p>
@@ -51,8 +52,8 @@ import homeData from '../content/pages/home.json';
 		</section>
 
 		<!-- Showcase: Stats -->
-		<section class="showcase section dark">
-			<div class="container showcase-inner">
+		<section class="showcase section dark" style="position: relative; overflow: hidden;">
+			<div class="container showcase-inner" style="position: relative; z-index: 1;">
 				<div class="showcase-screens">
 					{homeData.showcase.images.map(src => (
 						<img src={src} alt="Toona Showcase" width="175" height="380">
@@ -68,10 +69,13 @@ import homeData from '../content/pages/home.json';
 
 		<!-- Download CTA -->
 		<section class="download-cta">
-			<div class="container">
+			<div class="container" style="position: relative; z-index: 1;">
 				<h2>{homeData.cta.title}</h2>
 				<p>{homeData.cta.description}</p>
-				<a href={homeData.appStoreLink} class="btn btn-outline" style="background: white; color: var(--color-primary); border:none;">Get Started Now</a>
+				<a href={homeData.appStoreLink} class="btn-cta-pill">
+					<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+					Download on App Store
+				</a>
 			</div>
 		</section>
 
@@ -88,7 +92,7 @@ import homeData from '../content/pages/home.json';
 		padding: 0 1.5rem;
 	}
 	.hero {
-		background: #1A1A1A;
+		background: transparent;
 		color: white;
 		padding: 8rem 0 4rem;
 		min-height: 80vh;
@@ -135,22 +139,46 @@ import homeData from '../content/pages/home.json';
 	.btn-primary { background: #7B4FA6; color: white; }
 	.btn-outline { border: 2px solid rgba(255,255,255,0.2); color: white; }
 	
-	.btn-download {
+	.btn-download-white { 
+		display: inline-flex; 
+		align-items: center; 
+		background: white; 
+		color: #7B4FA6; 
+		padding: 0.8rem 2rem; 
+		border-radius: 99px; 
+		font-weight: 700; 
+		text-decoration: none;
+		box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+	.btn-download-white:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 8px 25px rgba(255,255,255,0.2);
+	}
+	.btn-cta-pill {
 		display: inline-flex;
 		align-items: center;
-		gap: 0.75rem;
-		background: #000;
-		color: white;
-		padding: 0.75rem 1.5rem;
+		background: white;
+		color: #7B4FA6;
+		padding: 1rem 2.5rem;
 		border-radius: 99px;
-		font-weight: 600;
-		border: 1px solid rgba(255,255,255,0.2);
+		font-weight: 800;
+		font-size: 1.1rem;
+		text-decoration: none;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+		transition: all 0.3s ease;
+	}
+	.btn-cta-pill:hover {
+		transform: scale(1.05);
+		box-shadow: 0 15px 40px rgba(255,255,255,0.25);
 	}
 	.hero-note { font-size: 0.75rem; color: #6B7280; margin-top: 1rem; }
 
+	.features { position: relative; background: transparent; }
 	.section { padding: 5rem 0; }
 	.section-header { text-align: center; margin-bottom: 3rem; }
-	.section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: #1A1A1A; }
+	.section-header h2 { font-size: 2.5rem; margin-bottom: 1rem; color: white; }
+	.section-header p { color: #9CA3AF; font-size: 1.125rem; }
 	
 	.features-grid { 
 		display: grid; 
@@ -158,12 +186,14 @@ import homeData from '../content/pages/home.json';
 		gap: 2rem; 
 	}
 	.card { 
-		background: white; 
+		background: rgba(255, 255, 255, 0.04); 
 		padding: 2rem; 
 		border-radius: 1.5rem; 
-		box-shadow: 0 4px 12px rgba(0,0,0,0.05); 
-		border: 1px solid #E5E7EB;
+		border: 1px solid rgba(255, 255, 255, 0.08);
+		backdrop-filter: blur(16px);
+		transition: background 0.3s ease, transform 0.3s ease;
 	}
+	.card:hover { background: rgba(255, 255, 255, 0.08); transform: translateY(-3px); }
 	.icon-circle {
 		width: 48px; height: 48px;
 		border-radius: 50%;
@@ -171,11 +201,11 @@ import homeData from '../content/pages/home.json';
 		font-size: 1.5rem;
 		margin-bottom: 1.5rem;
 	}
-	.feature-card h3 { color: #1A1A1A; margin-bottom: 1rem; }
-	.feature-card p { font-size: 0.875rem; color: #6B7280; }
+	.feature-card h3 { color: white; margin-bottom: 1rem; }
+	.feature-card p { font-size: 0.875rem; color: #9CA3AF; line-height: 1.6; }
 
 	/* Showcase Sections */
-	.showcase.dark { background: #1A1A1A; color: white; }
+	.showcase.dark { color: white; background: transparent; }
 	.showcase.dark .hero-tag { background: rgba(123,79,166,0.2); color: #4ECDC4; }
 	.showcase-inner { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 4rem; }
 	.showcase-screens { display: flex; gap: 1rem; align-items: flex-end; justify-content: center; }
@@ -185,10 +215,11 @@ import homeData from '../content/pages/home.json';
 
 	/* Download CTA */
 	.download-cta { 
-		background: #7B4FA6; 
 		color: white; 
 		text-align: center; 
 		padding: 6rem 0;
+		position: relative;
+		background: transparent;
 	}
 	.download-cta h2 { font-size: 3rem; margin-bottom: 1rem; color: white; }
 	.download-cta p { font-size: 1.25rem; margin-bottom: 2.5rem; opacity: 0.9; }

@@ -1,0 +1,80 @@
+{
+  "hero": {
+    "tag": "✦ Dev Log",
+    "title": "From Idea to App Store\nin 3 Months.",
+    "subtitle": "One developer, one breathing app. A real record of the journey — the wins, the bugs, and everything in between."
+  },
+  "stats": [
+    { "value": "2", "label": "Months from idea to v1.0" },
+    { "value": "1", "label": "Solo Developer" },
+    { "value": "v1.0", "label": "Current Version" },
+    { "value": "🚀", "label": "Live on App Store" }
+  ],
+  "timeline": [
+    {
+      "date": "January 2026",
+      "status": "💡 Idea",
+      "statusType": "idea",
+      "title": "Where it began",
+      "description": "Tired of over-complicated health apps, I wanted something simple — just breathing. Sketched the first wireframes on a Sunday afternoon.",
+      "items": []
+    },
+    {
+      "date": "Jan – Mar 2026",
+      "status": "🔨 Building",
+      "statusType": "building",
+      "title": "The First Working Build",
+      "description": "The core breathing engine, visual circle animation, and the first set of patterns — Box, 4-7-8, and Resonance.",
+      "items": [
+        "Phase-based engine (Inhale / Hold / Exhale)",
+        "Dynamic circle visualization",
+        "Dark & Light mode support",
+        "Custom pattern builder"
+      ]
+    },
+    {
+      "date": "Late March 2026",
+      "status": "⏳ Review",
+      "statusType": "review",
+      "title": "v1.0.0 — Submitted for Review",
+      "description": "Submitted to the App Store. Two months of work, one deep breath.",
+      "items": [
+        "5 Breathing Presets",
+        "Fully Custom Patterns",
+        "Progress Tracking & Weekly Stats",
+        "Ambience sounds (White noise, Wind, Rain)",
+        "CO₂ Tolerance test"
+      ],
+      "images": [
+        "/assets/images/01-home-lungs-dark.webp",
+        "/assets/images/lung-light-zh.webp"
+      ]
+    },
+    {
+      "date": "April 4, 2026",
+      "status": "🚀 Live",
+      "statusType": "live",
+      "title": "v1.0.0 — Official Launch",
+      "description": "Toona is officially on the App Store. Exactly two months from idea to launch. Thank you for being here.",
+      "items": []
+    },
+    {
+      "date": "Coming Next",
+      "status": "🔮 Planned",
+      "statusType": "planned",
+      "title": "v1.1.0 — What's Next",
+      "description": "Still planning. If you have ideas or feedback, I'd love to hear from you.",
+      "items": [
+        "Android Version",
+        "More Ambient Sounds",
+        "Guided breathing programs"
+      ]
+    }
+  ],
+  "cta": {
+    "title": "Want to follow the journey?",
+    "description": "Download Toona and be part of the story from day one.",
+    "button": "Download on App Store",
+    "secondaryButton": "Contact Us"
+  }
+}

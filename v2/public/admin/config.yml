@@ -1,8 +1,9 @@
 backend:
   name: github
-  repo: toonayoga/ToonaWebsite
+  repo: ToonaYoga/ToonaWebsite
   branch: main
   base_url: https://toona-auth.toonayoga.workers.dev
+local_backend: true
 
 media_folder: "v2/public/assets/images" # 修正：相对于仓库根目录的路径
 public_folder: "/assets/images"         # 修正：相对于部署后网站根目录的路径
@@ -86,8 +87,9 @@ collections:
                   - {label: "Icon (Emoji)", name: "icon", widget: "string"}
                   - {label: "Title", name: "title", widget: "string"}
                   - {label: "Description", name: "description", widget: "text"}
-                  - {label: "Background Color", name: "color", widget: "string"}
+                  - {label: "Background Color", name: "color", widget: "string", required: false}
           - label: "Showcase Section"
+
             name: "showcase"
             widget: "object"
             fields:
@@ -101,9 +103,105 @@ collections:
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
+              - {label: "Button Text", name: "button", widget: "string"}
+
+  - name: "devlog"
+    label: "开发日志"
+    delete: false
+    files:
+      - name: "devlog_en"
+        label: "Dev Log (English)"
+        file: "v2/src/content/pages/devlog.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "text"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Stats Bar"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Value", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+          - label: "Timeline"
+            name: "timeline"
+            widget: "list"
+            fields:
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Status Text", name: "status", widget: "string"}
+              - label: "Status Type"
+                name: "statusType"
+                widget: "select"
+                options: ["idea", "building", "review", "live", "planned"]
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Bullets"
+                name: "items"
+                widget: "list"
+                field: {label: "Item", name: "item", widget: "string"}
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                field: {label: "Image URL", name: "item", widget: "string"}
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+              - {label: "Primary Button", name: "button", widget: "string"}
+              - {label: "Secondary Button", name: "secondaryButton", widget: "string"}
+
+      - name: "devlog_zh"
+        label: "开发日志 (中文)"
+        file: "v2/src/content/pages/devlog_zh.json"
+        fields:
+          - label: "首屏区"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "标签", name: "tag", widget: "string"}
+              - {label: "标题", name: "title", widget: "text"}
+              - {label: "副标题", name: "subtitle", widget: "text"}
+          - label: "数据条"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "数值", name: "value", widget: "string"}
+              - {label: "名称", name: "label", widget: "string"}
+          - label: "时间轴"
+            name: "timeline"
+            widget: "list"
+            fields:
+              - {label: "日期", name: "date", widget: "string"}
+              - {label: "状态文字", name: "status", widget: "string"}
+              - label: "状态类型"
+                name: "statusType"
+                widget: "select"
+                options: ["idea", "building", "review", "live", "planned"]
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "text"}
+              - label: "列表项"
+                name: "items"
+                widget: "list"
+                field: {label: "条目", name: "item", widget: "string"}
+              - label: "图片列表"
+                name: "images"
+                widget: "list"
+                field: {label: "图片路径", name: "item", widget: "string"}
+          - label: "引导区"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "string"}
+              - {label: "主要按钮", name: "button", widget: "string"}
+              - {label: "次要按钮", name: "secondaryButton", widget: "string"}
 
       - name: "home_zh"
-
         label: "首页内容 (中文)"
         file: "v2/src/content/pages/home_zh.json"
         fields:
@@ -125,7 +223,7 @@ collections:
                   - {label: "图标 (表情)", name: "icon", widget: "string"}
                   - {label: "标题", name: "title", widget: "string"}
                   - {label: "描述", name: "description", widget: "text"}
-                  - {label: "背景颜色", name: "color", widget: "string"}
+                  - {label: "背景颜色", name: "color", widget: "string", required: false}
           - label: "展示区"
             name: "showcase"
             widget: "object"
@@ -140,5 +238,233 @@ collections:
             fields:
               - {label: "标题", name: "title", widget: "string"}
               - {label: "描述", name: "description", widget: "text"}
+              - {label: "按钮文字", name: "button", widget: "string"}
+  - name: "about"
+    label: "关于页内容"
+    delete: false
+    files:
+      - name: "about_en"
+        label: "About Page (English)"
+        file: "v2/src/content/pages/about.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "text"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Mission Section"
+            name: "mission"
+            widget: "object"
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "text"}
+              - label: "Descriptions"
+                name: "descriptions"
+                widget: "list"
+                field: {label: "Paragraph", name: "item", widget: "text"}
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "Value", name: "value", widget: "string"}
+          - label: "Values Section"
+            name: "values"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "string"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+          - label: "Story Section"
+            name: "story"
+            widget: "object"
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: {label: "Paragraph", name: "item", widget: "text"}
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+              - {label: "Button Text", name: "button", widget: "string"}
 
+      - name: "about_zh"
+        label: "关于页面 (中文)"
+        file: "v2/src/content/pages/about_zh.json"
+        fields:
+          - label: "首屏区"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "标签", name: "tag", widget: "string"}
+              - {label: "标题", name: "title", widget: "text"}
+              - {label: "副标题", name: "subtitle", widget: "text"}
+          - label: "使命区"
+            name: "mission"
+            widget: "object"
+            fields:
+              - {label: "标签", name: "tag", widget: "string"}
+              - {label: "标题", name: "title", widget: "text"}
+              - label: "描述列表"
+                name: "descriptions"
+                widget: "list"
+                field: {label: "段落", name: "item", widget: "text"}
+              - label: "数据统计"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - {label: "名称", name: "label", widget: "string"}
+                  - {label: "数值", name: "value", widget: "string"}
+          - label: "价值观区"
+            name: "values"
+            widget: "object"
+            fields:
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "副标题", name: "subtitle", widget: "string"}
+              - label: "价值观项"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "图标", name: "icon", widget: "string"}
+                  - {label: "标题", name: "title", widget: "string"}
+                  - {label: "描述", name: "description", widget: "text"}
+          - label: "起源故事"
+            name: "story"
+            widget: "object"
+            fields:
+              - {label: "标签", name: "tag", widget: "string"}
+              - {label: "标题", name: "title", widget: "string"}
+              - label: "故事段落"
+                name: "paragraphs"
+                widget: "list"
+                field: {label: "段落", name: "item", widget: "text"}
+          - label: "引导区"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "string"}
+              - {label: "按钮文字", name: "button", widget: "string"}
 
+  - name: "support"
+    label: "支持与常见问题"
+    delete: false
+    files:
+      - name: "support_en"
+        label: "Support Page (English)"
+        file: "v2/src/content/pages/support.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "text"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "FAQ Table"
+            name: "faq"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string"}
+              - label: "Questions & Answers"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Question", name: "question", widget: "string"}
+                  - {label: "Answer", name: "answer", widget: "text"}
+          - label: "Contact Section"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Descriptions"
+                name: "descriptions"
+                widget: "list"
+                field: {label: "Paragraph", name: "item", widget: "text"}
+              - label: "Contact Card"
+                name: "card"
+                widget: "object"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "string"}
+                  - {label: "Card Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Email Address", name: "email", widget: "string"}
+                  - {label: "Response Time", name: "response", widget: "string"}
+          - label: "Quick Links"
+            name: "links"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: "Link Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Icon", name: "icon", widget: "string"}
+                  - {label: "Label", name: "label", widget: "string"}
+                  - {label: "URL Pattern", name: "href", widget: "string"}
+      
+      - name: "support_zh"
+        label: "支持页面 (中文)"
+        file: "v2/src/content/pages/support_zh.json"
+        fields:
+          - label: "首屏区"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "标签", name: "tag", widget: "string"}
+              - {label: "标题", name: "title", widget: "text"}
+              - {label: "副标题", name: "subtitle", widget: "text"}
+          - label: "常见问题"
+            name: "faq"
+            widget: "object"
+            fields:
+              - {label: "区块标题", name: "title", widget: "string"}
+              - label: "问答列表"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "问题", name: "question", widget: "string"}
+                  - {label: "答案", name: "answer", widget: "text"}
+          - label: "联系区"
+            name: "contact"
+            widget: "object"
+            fields:
+              - {label: "标题", name: "title", widget: "string"}
+              - label: "描述段落"
+                name: "descriptions"
+                widget: "list"
+                field: {label: "段落", name: "item", widget: "text"}
+              - label: "联系卡片"
+                name: "card"
+                widget: "object"
+                fields:
+                  - {label: "图标 (Emoji)", name: "icon", widget: "string"}
+                  - {label: "卡片标题", name: "title", widget: "string"}
+                  - {label: "描述", name: "description", widget: "text"}
+                  - {label: "邮箱地址", name: "email", widget: "string"}
+                  - {label: "响应时间", name: "response", widget: "string"}
+          - label: "快速链接"
+            name: "links"
+            widget: "object"
+            fields:
+              - {label: "区块标题", name: "title", widget: "string"}
+              - label: "链接项"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "图标 (Emoji)", name: "icon", widget: "string"}
+                  - {label: "名称", name: "label", widget: "string"}
+                  - {label: "URL地址", name: "href", widget: "string"}

@@ -1,0 +1,65 @@
+{
+  "hero": {
+    "tag": "✦ 支持",
+    "title": "有什么可以帮你？",
+    "subtitle": "查找常见问题解答，或直接联系我们——通常在 24 小时内回复。"
+  },
+  "faq": {
+    "title": "常见问题",
+    "items": [
+      {
+        "question": "吐纳支持哪些呼吸模式？",
+        "answer": "吐纳内置箱式呼吸（4-4-4-4）、4-7-8 睡眠呼吸法、共振呼吸（5-0-5），以及完全自定义模式——你可以精确设置每个阶段（吸气、屏息、呼气）的时长，精确到秒。"
+      },
+      {
+        "question": "如何创建自定义呼吸模式？",
+        "answer": "打开 App，点击设置图标。在「呼吸阶段」下，使用滑块调整每个阶段的时长。你的自定义模式会自动保存。"
+      },
+      {
+        "question": "CO₂ 耐受度测试是什么？",
+        "answer": "CO₂ 测试测量你在正常呼气后能舒适屏息的时长。这是追踪呼吸健康状况的简单方式。分数越高，通常代表更好的呼吸控制能力和呼吸效率。"
+      },
+      {
+        "question": "我的数据是否私密存储？",
+        "answer": "是的。所有训练数据都存储在你的设备本地。吐纳不会收集或传输任何个人健康数据到服务器。详情请查看我们的隐私政策。"
+      },
+      {
+        "question": "吐纳支持 Apple Watch 吗？",
+        "answer": "Apple Watch 支持计划在未来版本中推出。请关注开发日志获取最新动态。"
+      },
+      {
+        "question": "吐纳有 Android 版本吗？",
+        "answer": "目前吐纳仅支持 iOS。Android 版本已在开发计划中，请关注开发日志获取发布公告。"
+      },
+      {
+        "question": "环境音效是什么？",
+        "answer": "环境音效是在呼吸训练过程中播放的背景音频（白噪音、风声、雨声等）。它们有助于屏蔽干扰，营造平静的训练环境。"
+      }
+    ]
+  },
+  "contact": {
+    "title": "还有其他问题？",
+    "descriptions": [
+      "没有找到你需要的答案？发邮件给我们，我们会尽快回复。",
+      "我们是一个小团队（说实话，目前就一个人），感谢你的耐心——但我们会认真阅读每一封邮件。"
+    ],
+    "card": {
+      "icon": "✉️",
+      "title": "邮件支持",
+      "description": "Bug 反馈、功能建议或一般性问题。",
+      "email": "toonayoga@hotmail.com",
+      "response": "⏱ 通常在 24 小时内回复"
+    }
+  },
+  "links": {
+    "title": "快速链接",
+    "items": [
+      { "icon": "🔒", "label": "隐私政策", "href": "/privacy/zh/PrivacyPolicy.html" },
+      { "icon": "📄", "label": "使用条款", "href": "/terms/zh/TermsOfUse.html" },
+      { "icon": "📝", "label": "开发日志", "href": "/zh/devlog/" },
+      { "icon": "👋", "label": "关于吐纳", "href": "/zh/about/" },
+      { "icon": "⬇️", "label": "下载应用", "href": "/zh/download/" },
+      { "icon": "✉️", "label": "联系我们", "href": "mailto:toonayoga@hotmail.com" }
+    ]
+  }
+}
