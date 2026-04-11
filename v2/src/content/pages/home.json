@@ -1,6 +1,44 @@
 {
   "heroTitle": "Breathe Better, Live Calmer.",
   "heroSubtitle": "Master Box Breathing, 4-7-8, and custom patterns with Toona. Built for focus, sleep, and performance.",
+  "heroImages": [
+    "/assets/images/body-light.webp",
+    "/assets/images/circle.webp"
+  ],
   "appStoreLink": "https://apps.apple.com/us/app/toona-breathing-focus/id6761040533",
-  "description": "Toona: Breathing & Focus — Simple Box Breathing & 4-7-8 Trainer"
+  "description": "Toona: Breathing & Focus — Simple Box Breathing & 4-7-8 Trainer",
+  "features": {
+    "title": "Everything you need to breathe well",
+    "subtitle": "Science-backed patterns, beautiful visuals, and insights that keep you consistent.",
+    "items": [
+      {
+        "icon": "🫁",
+        "title": "Guided Patterns",
+        "description": "Box Breathing, 4-7-8 Sleep, Resonance, and fully custom patterns — all in one place.",
+        "color": "rgba(78,205,196,0.15)"
+      },
+      {
+        "icon": "📊",
+        "title": "Progress Tracking",
+        "description": "Weekly trends, phase distribution charts, and full session history to keep you motivated.",
+        "color": "rgba(123,79,166,0.15)"
+      },
+      {
+        "icon": "🎵",
+        "title": "Soundscapes",
+        "description": "White noise, wind, rain and more — ambient sounds that follow your breathing phases.",
+        "color": "rgba(255,107,53,0.15)"
+      }
+    ]
+  },
+  "showcase": {
+    "tag": "📈 Insights",
+    "title": "Track every breath, every day.",
+    "description": "Detailed analytics show your total practice time, rounds completed, and active days — so you can see real progress over time.",
+    "images": [
+      "/assets/images/stats.webp",
+      "/assets/images/history.webp"
+    ]
+  }
 }
+

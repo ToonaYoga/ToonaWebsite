@@ -67,10 +67,37 @@ collections:
         label: "Home Page (EN)"
         file: "v2/src/content/pages/home.json"
         fields:
+      - name: "home"
+        label: "Home Page (EN)"
+        file: "v2/src/content/pages/home.json"
+        fields:
           - {label: "Hero Title", name: "heroTitle", widget: "string"}
           - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
+          - {label: "Hero Images", name: "heroImages", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
           - {label: "App Store Link", name: "appStoreLink", widget: "string"}
           - {label: "SEO Description", name: "description", widget: "string"}
+          - label: "Features Section"
+            name: "features"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "Icon (Emoji)", name: "icon", widget: "string"}
+                  - {label: "Title", name: "title", widget: "string"}
+                  - {label: "Description", name: "description", widget: "text"}
+                  - {label: "Background Color", name: "color", widget: "string"}
+          - label: "Showcase Section"
+            name: "showcase"
+            widget: "object"
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Showcase Images", name: "images", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
 
       - name: "home_zh"
         label: "首页内容 (中文)"
@@ -78,5 +105,29 @@ collections:
         fields:
           - {label: "英雄区标题", name: "heroTitle", widget: "string"}
           - {label: "英雄区副标题", name: "heroSubtitle", widget: "text"}
+          - {label: "英雄区图片", name: "heroImages", widget: "list", field: {label: "图片", name: "image", widget: "image"}}
           - {label: "App Store 链接", name: "appStoreLink", widget: "string"}
           - {label: "SEO 描述", name: "description", widget: "string"}
+          - label: "功能列表区"
+            name: "features"
+            widget: "object"
+            fields:
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "副标题", name: "subtitle", widget: "text"}
+              - label: "功能项"
+                name: "items"
+                widget: "list"
+                fields:
+                  - {label: "图标 (表情)", name: "icon", widget: "string"}
+                  - {label: "标题", name: "title", widget: "string"}
+                  - {label: "描述", name: "description", widget: "text"}
+                  - {label: "背景颜色", name: "color", widget: "string"}
+          - label: "展示区"
+            name: "showcase"
+            widget: "object"
+            fields:
+              - {label: "标签", name: "tag", widget: "string"}
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "text"}
+              - {label: "展示图片", name: "images", widget: "list", field: {label: "图片", name: "image", widget: "image"}}
+

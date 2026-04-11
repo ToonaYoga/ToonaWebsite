@@ -24,8 +24,9 @@ import homeData from '../content/pages/home.json';
 					<p class="hero-note">Free to download · iOS 18.6+ only</p>
 				</div>
 				<div class="hero-image">
-					<img src="/assets/images/body-light.webp" alt="Toona App Preview" width="210" height="455">
-					<img src="/assets/images/circle.webp" alt="Toona Box Training" width="210" height="455">
+					{homeData.heroImages.map((src, i) => (
+						<img src={src} alt="Toona App Preview" width="210" height="455">
+					))}
 				</div>
 			</div>
 		</section>
@@ -34,25 +35,17 @@ import homeData from '../content/pages/home.json';
 		<section class="features section">
 			<div class="container">
 				<div class="section-header">
-					<h2>Everything you need to breathe well</h2>
-					<p>Science-backed patterns, beautiful visuals, and insights that keep you consistent.</p>
+					<h2>{homeData.features.title}</h2>
+					<p>{homeData.features.subtitle}</p>
 				</div>
 				<div class="features-grid">
-					<div class="card feature-card">
-						<div class="icon-circle" style="background:rgba(78,205,196,0.15);">🫁</div>
-						<h3>Guided Patterns</h3>
-						<p>Box Breathing, 4-7-8 Sleep, Resonance, and fully custom patterns — all in one place.</p>
-					</div>
-					<div class="card feature-card">
-						<div class="icon-circle" style="background:rgba(123,79,166,0.15);">📊</div>
-						<h3>Progress Tracking</h3>
-						<p>Weekly trends, phase distribution charts, and full session history to keep you motivated.</p>
-					</div>
-					<div class="card feature-card">
-						<div class="icon-circle" style="background:rgba(255,107,53,0.15);">🎵</div>
-						<h3>Soundscapes</h3>
-						<p>White noise, wind, rain and more — ambient sounds that follow your breathing phases.</p>
-					</div>
+					{homeData.features.items.map(feature => (
+						<div class="card feature-card">
+							<div class="icon-circle" style={`background:${feature.color};`}>{feature.icon}</div>
+							<h3>{feature.title}</h3>
+							<p>{feature.description}</p>
+						</div>
+					))}
 				</div>
 			</div>
 		</section>
@@ -61,13 +54,14 @@ import homeData from '../content/pages/home.json';
 		<section class="showcase section dark">
 			<div class="container showcase-inner">
 				<div class="showcase-screens">
-					<img src="/assets/images/stats.webp" alt="Toona stats" width="175" height="380">
-					<img src="/assets/images/history.webp" alt="Toona history" width="175" height="380">
+					{homeData.showcase.images.map(src => (
+						<img src={src} alt="Toona Showcase" width="175" height="380">
+					))}
 				</div>
 				<div class="showcase-content">
-					<span class="hero-tag">📈 Insights</span>
-					<h2>Track every breath,<br>every day.</h2>
-					<p>Detailed analytics show your total practice time, rounds completed, and active days — so you can see real progress over time.</p>
+					<span class="hero-tag">{homeData.showcase.tag}</span>
+					<h2>{homeData.showcase.title}</h2>
+					<p>{homeData.showcase.description}</p>
 				</div>
 			</div>
 		</section>
@@ -84,6 +78,7 @@ import homeData from '../content/pages/home.json';
 
 	<Footer lang="en" />
 </MainLayout>
+
 
 <style>
 	.container {

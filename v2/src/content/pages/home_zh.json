@@ -1,6 +1,44 @@
 {
   "heroTitle": "呼吸更好，生活更平静。",
   "heroSubtitle": "通过 吐纳 (Toona) 掌握箱式呼吸、4-7-8 与自定义模式。专为专注、睡眠与表现而设计。",
+  "heroImages": [
+    "/assets/images/lung-light-zh.webp",
+    "/assets/images/settings-dark-zh.webp"
+  ],
   "appStoreLink": "https://apps.apple.com/us/app/toona-breathing-focus/id6761040533",
-  "description": "吐纳: 呼吸 & 专注 — 极简箱式呼吸与 4-7-8 训练器"
+  "description": "吐纳: 呼吸 & 专注 — 极简箱式呼吸与 4-7-8 训练器",
+  "features": {
+    "title": "你所需要的一切，皆为呼吸",
+    "subtitle": "科学支持的模式、精美的视觉效果和深入的洞察，让你保持一致性。",
+    "items": [
+      {
+        "icon": "🫁",
+        "title": "引导模式",
+        "description": "箱式呼吸、4-7-8 助眠、共振呼吸以及完全自定义模式——全部在一处开启。",
+        "color": "rgba(78,205,196,0.15)"
+      },
+      {
+        "icon": "📊",
+        "title": "进度追踪",
+        "description": "周趋势、相位分布图和完整的会话历史记录，保持你的训练动力。",
+        "color": "rgba(123,79,166,0.15)"
+      },
+      {
+        "icon": "🎵",
+        "title": "环境音效",
+        "description": "白噪声、风声、雨声及更多——随你的呼吸节奏波动的环境音。",
+        "color": "rgba(255,107,53,0.15)"
+      }
+    ]
+  },
+  "showcase": {
+    "tag": "📈 洞察",
+    "title": "追踪每一次呼吸，记录每一天。",
+    "description": "详细的代码分析显示你的总练习时间、完成的轮次和活跃天数——让你见证随着时间推移带来的真实进步。",
+    "images": [
+      "/assets/images/stats-light-zh.webp",
+      "/assets/images/history-light-zh.webp"
+    ]
+  }
 }
+
