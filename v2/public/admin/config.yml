@@ -67,11 +67,8 @@ collections:
         label: "Home Page (EN)"
         file: "v2/src/content/pages/home.json"
         fields:
-      - name: "home"
-        label: "Home Page (EN)"
-        file: "v2/src/content/pages/home.json"
-        fields:
           - {label: "Hero Title", name: "heroTitle", widget: "string"}
+
           - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
           - {label: "Hero Images", name: "heroImages", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
           - {label: "App Store Link", name: "appStoreLink", widget: "string"}
