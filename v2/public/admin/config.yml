@@ -95,8 +95,15 @@ collections:
               - {label: "Title", name: "title", widget: "string"}
               - {label: "Description", name: "description", widget: "text"}
               - {label: "Showcase Images", name: "images", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
+          - label: "CTA Section (Bottom)"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
 
       - name: "home_zh"
+
         label: "首页内容 (中文)"
         file: "v2/src/content/pages/home_zh.json"
         fields:
@@ -127,4 +134,11 @@ collections:
               - {label: "标题", name: "title", widget: "string"}
               - {label: "描述", name: "description", widget: "text"}
               - {label: "展示图片", name: "images", widget: "list", field: {label: "图片", name: "image", widget: "image"}}
+          - label: "底部下载引导区"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "text"}
+
 

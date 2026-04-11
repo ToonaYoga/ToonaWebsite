@@ -69,11 +69,12 @@ import homeData from '../content/pages/home.json';
 		<!-- Download CTA -->
 		<section class="download-cta">
 			<div class="container">
-				<h2>Ready to breathe better?</h2>
-				<p>Download Toona today and start your journey to a calmer, more focused you.</p>
+				<h2>{homeData.cta.title}</h2>
+				<p>{homeData.cta.description}</p>
 				<a href={homeData.appStoreLink} class="btn btn-outline" style="background: white; color: var(--color-primary); border:none;">Get Started Now</a>
 			</div>
 		</section>
+
 	</main>
 
 	<Footer lang="en" />

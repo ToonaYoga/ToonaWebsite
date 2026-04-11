@@ -94,6 +94,11 @@
     .preview-showcase-content { flex: 1; text-align: left; }
     .preview-showcase-screen { flex: 1; display: flex; gap: 15px; justify-content: center; }
     .preview-showcase-img { width: 140px; border-radius: 24px; box-shadow: 0 20px 48px rgba(0,0,0,0.4); }
+
+    .preview-cta { background: #7B4FA6; color: white; text-align: center; }
+    .preview-cta h2 { font-size: 36px; margin-bottom: 20px; color: white; }
+    .preview-cta p { font-size: 18px; opacity: 0.9; margin-bottom: 30px; }
+    .preview-cta .preview-btn { background: white; color: #7B4FA6; border: none; }
   </style>
 </head>
 <body>
@@ -111,6 +116,7 @@
         const heroImages = data.heroImages || [];
         const features = data.features || { title: '', subtitle: '', items: [] };
         const showcase = data.showcase || { tag: '', title: '', description: '', images: [] };
+        const cta = data.cta || { title: '', description: '' };
 
         // 模拟换行逻辑
         const formattedTitle = title.replace(/[，,]/g, (m) => m + '<br>');
@@ -160,6 +166,15 @@
                 h('p', { style: { color: '#9CA3AF', fontSize: '18px', lineHeight: '1.6' } }, showcase.description)
               )
             )
+          ),
+
+          // CTA Section
+          h('section', { className: 'preview-section preview-cta' },
+            h('div', { className: 'preview-container' },
+              h('h2', {}, cta.title),
+              h('p', {}, cta.description),
+              h('div', { className: 'preview-btn' }, 'Get Started Now')
+            )
           )
         );
       }
@@ -169,6 +184,7 @@
     CMS.registerPreviewTemplate("home_zh", HomePreview);
   </script>
 </body>
+
 
 
 </html>
