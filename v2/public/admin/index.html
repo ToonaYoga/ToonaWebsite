@@ -4,9 +4,99 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Toona CMS Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* 注入一些基础样式，让预览窗口看起来不那么单调 */
+    .preview-hero {
+      font-family: 'Inter', sans-serif;
+      background: #1A1A1A;
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      min-height: 400px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    .preview-tag {
+      background: rgba(123, 79, 166, 0.2);
+      color: #4ECDC4;
+      padding: 4px 12px;
+      border-radius: 99px;
+      font-size: 14px;
+      margin-bottom: 20px;
+    }
+    .preview-hero h1 {
+      font-size: 48px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+      max-width: 800px;
+    }
+    .preview-hero p {
+      font-size: 18px;
+      color: #9CA3AF;
+      margin-bottom: 30px;
+      max-width: 600px;
+    }
+    .preview-btn {
+      background: #7B4FA6;
+      color: white;
+      padding: 12px 32px;
+      border-radius: 99px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-block;
+    }
+  </style>
 </head>
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  <script>
+    // 渲染英文首页预览
+    const HomePreview = createClass({
+      render: function() {
+        const entry = this.props.entry;
+        const title = entry.getIn(['data', 'heroTitle']) || '';
+        const subtitle = entry.getIn(['data', 'heroSubtitle']) || '';
+        
+        // 模拟 Astro 中的 replace(',', ',<br>') 逻辑
+        const formattedTitle = title.replace(',', ',<br>');
+
+        return h('div', { className: 'preview-hero' },
+          h('span', { className: 'preview-tag' }, '✦ Breathing Training App'),
+          h('h1', { dangerouslySetInnerHTML: { __html: formattedTitle } }),
+          h('p', {}, subtitle),
+          h('div', { className: 'preview-btn' }, 'Download on App Store')
+        );
+      }
+    });
+
+    // 渲染中文首页预览
+    const HomeZhPreview = createClass({
+      render: function() {
+        const entry = this.props.entry;
+        const title = entry.getIn(['data', 'heroTitle']) || '';
+        const subtitle = entry.getIn(['data', 'heroSubtitle']) || '';
+        
+        // 模拟 Astro 中的 replace('，', '，<br>') 逻辑
+        const formattedTitle = title.replace('，', '，<br>');
+
+        return h('div', { className: 'preview-hero' },
+          h('span', { className: 'preview-tag' }, '✦ 呼吸训练应用'),
+          h('h1', { dangerouslySetInnerHTML: { __html: formattedTitle } }),
+          h('p', {}, subtitle),
+          h('div', { className: 'preview-btn' }, '在 App Store 下载')
+        );
+      }
+    });
+
+    CMS.registerPreviewTemplate("home", HomePreview);
+    CMS.registerPreviewTemplate("home_zh", HomeZhPreview);
+  </script>
 </body>
 </html>
+
