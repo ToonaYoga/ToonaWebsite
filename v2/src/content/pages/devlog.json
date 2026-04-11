@@ -1,14 +1,26 @@
 {
   "hero": {
     "tag": "✦ Dev Log",
-    "title": "From Idea to App Store\nin 3 Months.",
+    "title": "From Idea to App Store in 3 Months.",
     "subtitle": "One developer, one breathing app. A real record of the journey — the wins, the bugs, and everything in between."
   },
   "stats": [
-    { "value": "2", "label": "Months from idea to v1.0" },
-    { "value": "1", "label": "Solo Developer" },
-    { "value": "v1.0", "label": "Current Version" },
-    { "value": "🚀", "label": "Live on App Store" }
+    {
+      "value": "2",
+      "label": "Months from idea to v1.0"
+    },
+    {
+      "value": "1",
+      "label": "Solo Developer"
+    },
+    {
+      "value": "v1.0",
+      "label": "Current Version"
+    },
+    {
+      "value": "🚀",
+      "label": "Live on App Store"
+    }
   ],
   "timeline": [
     {
@@ -57,6 +69,13 @@
       "title": "v1.0.0 — Official Launch",
       "description": "Toona is officially on the App Store. Exactly two months from idea to launch. Thank you for being here.",
       "items": []
+    },
+    {
+      "date": "April 7, 2026",
+      "status": "🚀 Toona v1.0.1 update Live",
+      "statusType": "live",
+      "title": "🚀 Toona v1.0.1 update Live",
+      "description": "New:\nSaved Custom Mode\n,CO2 trend in History,Smoother CO2 test + Retest,Better energy efficency.\n"
     },
     {
       "date": "Coming Next",

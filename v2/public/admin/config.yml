@@ -5,15 +5,15 @@ backend:
   base_url: https://toona-auth.toonayoga.workers.dev
 local_backend: true
 
-media_folder: "v2/public/assets/images" # 修正：相对于仓库根目录的路径
-public_folder: "/assets/images"         # 修正：相对于部署后网站根目录的路径
+media_folder: "v2/public/assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: "globals"
-    label: "全局设置"
-    delete: false # 防止误删
+    label: "⚙️ 全局设置"
+    delete: false
     editor:
-      preview: false # 全局设置不需要实时预览
+      preview: false
     files:
       - name: "navigation"
         label: "导航栏链接"
@@ -59,17 +59,18 @@ collections:
                   - { label: "文字 (ZH)", name: "label_zh", widget: "string" }
                   - { label: "链接 (EN)", name: "url_en", widget: "string" }
                   - { label: "链接 (ZH)", name: "url_zh", widget: "string" }
-          - { label: "版权所有者", name: "copyright_owner", widget: "string" }
+          - { label: "版权所有者 (EN)", name: "copyright_owner", widget: "string" }
+          - { label: "版权所有者 (ZH)", name: "copyright_owner_zh", widget: "string", required: false }
 
   - name: "pages"
-    label: "Pages"
+    label: "📄 页面内容"
+    delete: false
     files:
-      - name: "home"
-        label: "Home Page (EN)"
+      - name: "home_en"
+        label: "🏠 首页 (English)"
         file: "v2/src/content/pages/home.json"
         fields:
           - {label: "Hero Title", name: "heroTitle", widget: "string"}
-
           - {label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
           - {label: "Hero Images", name: "heroImages", widget: "list", field: {label: "Image", name: "image", widget: "image"}}
           - {label: "App Store Link", name: "appStoreLink", widget: "string"}
@@ -89,7 +90,6 @@ collections:
                   - {label: "Description", name: "description", widget: "text"}
                   - {label: "Background Color", name: "color", widget: "string", required: false}
           - label: "Showcase Section"
-
             name: "showcase"
             widget: "object"
             fields:
@@ -105,104 +105,8 @@ collections:
               - {label: "Description", name: "description", widget: "text"}
               - {label: "Button Text", name: "button", widget: "string"}
 
-  - name: "devlog"
-    label: "开发日志"
-    delete: false
-    files:
-      - name: "devlog_en"
-        label: "Dev Log (English)"
-        file: "v2/src/content/pages/devlog.json"
-        fields:
-          - label: "Hero Section"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "Tag", name: "tag", widget: "string"}
-              - {label: "Title", name: "title", widget: "text"}
-              - {label: "Subtitle", name: "subtitle", widget: "text"}
-          - label: "Stats Bar"
-            name: "stats"
-            widget: "list"
-            fields:
-              - {label: "Value", name: "value", widget: "string"}
-              - {label: "Label", name: "label", widget: "string"}
-          - label: "Timeline"
-            name: "timeline"
-            widget: "list"
-            fields:
-              - {label: "Date", name: "date", widget: "string"}
-              - {label: "Status Text", name: "status", widget: "string"}
-              - label: "Status Type"
-                name: "statusType"
-                widget: "select"
-                options: ["idea", "building", "review", "live", "planned"]
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "text"}
-              - label: "Bullets"
-                name: "items"
-                widget: "list"
-                field: {label: "Item", name: "item", widget: "string"}
-              - label: "Images"
-                name: "images"
-                widget: "list"
-                field: {label: "Image URL", name: "item", widget: "string"}
-          - label: "CTA Section"
-            name: "cta"
-            widget: "object"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - {label: "Description", name: "description", widget: "string"}
-              - {label: "Primary Button", name: "button", widget: "string"}
-              - {label: "Secondary Button", name: "secondaryButton", widget: "string"}
-
-      - name: "devlog_zh"
-        label: "开发日志 (中文)"
-        file: "v2/src/content/pages/devlog_zh.json"
-        fields:
-          - label: "首屏区"
-            name: "hero"
-            widget: "object"
-            fields:
-              - {label: "标签", name: "tag", widget: "string"}
-              - {label: "标题", name: "title", widget: "text"}
-              - {label: "副标题", name: "subtitle", widget: "text"}
-          - label: "数据条"
-            name: "stats"
-            widget: "list"
-            fields:
-              - {label: "数值", name: "value", widget: "string"}
-              - {label: "名称", name: "label", widget: "string"}
-          - label: "时间轴"
-            name: "timeline"
-            widget: "list"
-            fields:
-              - {label: "日期", name: "date", widget: "string"}
-              - {label: "状态文字", name: "status", widget: "string"}
-              - label: "状态类型"
-                name: "statusType"
-                widget: "select"
-                options: ["idea", "building", "review", "live", "planned"]
-              - {label: "标题", name: "title", widget: "string"}
-              - {label: "描述", name: "description", widget: "text"}
-              - label: "列表项"
-                name: "items"
-                widget: "list"
-                field: {label: "条目", name: "item", widget: "string"}
-              - label: "图片列表"
-                name: "images"
-                widget: "list"
-                field: {label: "图片路径", name: "item", widget: "string"}
-          - label: "引导区"
-            name: "cta"
-            widget: "object"
-            fields:
-              - {label: "标题", name: "title", widget: "string"}
-              - {label: "描述", name: "description", widget: "string"}
-              - {label: "主要按钮", name: "button", widget: "string"}
-              - {label: "次要按钮", name: "secondaryButton", widget: "string"}
-
       - name: "home_zh"
-        label: "首页内容 (中文)"
+        label: "🏠 首页 (中文)"
         file: "v2/src/content/pages/home_zh.json"
         fields:
           - {label: "英雄区标题", name: "heroTitle", widget: "string"}
@@ -239,12 +143,9 @@ collections:
               - {label: "标题", name: "title", widget: "string"}
               - {label: "描述", name: "description", widget: "text"}
               - {label: "按钮文字", name: "button", widget: "string"}
-  - name: "about"
-    label: "关于页内容"
-    delete: false
-    files:
+
       - name: "about_en"
-        label: "About Page (English)"
+        label: "👋 关于 (English)"
         file: "v2/src/content/pages/about.json"
         fields:
           - label: "Hero Section"
@@ -302,7 +203,7 @@ collections:
               - {label: "Button Text", name: "button", widget: "string"}
 
       - name: "about_zh"
-        label: "关于页面 (中文)"
+        label: "👋 关于 (中文)"
         file: "v2/src/content/pages/about_zh.json"
         fields:
           - label: "首屏区"
@@ -359,12 +260,8 @@ collections:
               - {label: "描述", name: "description", widget: "string"}
               - {label: "按钮文字", name: "button", widget: "string"}
 
-  - name: "support"
-    label: "支持与常见问题"
-    delete: false
-    files:
       - name: "support_en"
-        label: "Support Page (English)"
+        label: "🛠️ 支持 (English)"
         file: "v2/src/content/pages/support.json"
         fields:
           - label: "Hero Section"
@@ -417,7 +314,7 @@ collections:
                   - {label: "URL Pattern", name: "href", widget: "string"}
       
       - name: "support_zh"
-        label: "支持页面 (中文)"
+        label: "🛠️ 支持 (中文)"
         file: "v2/src/content/pages/support_zh.json"
         fields:
           - label: "首屏区"
@@ -468,3 +365,101 @@ collections:
                   - {label: "图标 (Emoji)", name: "icon", widget: "string"}
                   - {label: "名称", name: "label", widget: "string"}
                   - {label: "URL地址", name: "href", widget: "string"}
+
+  - name: "devlog"
+    label: "📝 开发日志"
+    delete: false
+    files:
+      - name: "devlog_en"
+        label: "Dev Log (English)"
+        file: "v2/src/content/pages/devlog.json"
+        fields:
+          - label: "Hero Section"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "Tag", name: "tag", widget: "string"}
+              - {label: "Title", name: "title", widget: "text"}
+              - {label: "Subtitle", name: "subtitle", widget: "text"}
+          - label: "Stats Bar"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "Value", name: "value", widget: "string"}
+              - {label: "Label", name: "label", widget: "string"}
+          - label: "Timeline"
+            name: "timeline"
+            widget: "list"
+            fields:
+              - {label: "Date", name: "date", widget: "string"}
+              - {label: "Status Text", name: "status", widget: "string"}
+              - label: "Status Type"
+                name: "statusType"
+                widget: "select"
+                options: ["idea", "building", "review", "live", "planned"]
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - label: "Bullets"
+                name: "items"
+                widget: "list"
+                field: {label: "Item", name: "item", widget: "string"}
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                required: false
+                field: {label: "Image URL", name: "item", widget: "image"}
+          - label: "CTA Section"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Description", name: "description", widget: "string"}
+              - {label: "Primary Button", name: "button", widget: "string"}
+              - {label: "Secondary Button", name: "secondaryButton", widget: "string"}
+
+      - name: "devlog_zh"
+        label: "开发日志 (中文)"
+        file: "v2/src/content/pages/devlog_zh.json"
+        fields:
+          - label: "首屏区"
+            name: "hero"
+            widget: "object"
+            fields:
+              - {label: "标签", name: "tag", widget: "string"}
+              - {label: "标题", name: "title", widget: "text"}
+              - {label: "副标题", name: "subtitle", widget: "text"}
+          - label: "数据条"
+            name: "stats"
+            widget: "list"
+            fields:
+              - {label: "数值", name: "value", widget: "string"}
+              - {label: "名称", name: "label", widget: "string"}
+          - label: "时间轴"
+            name: "timeline"
+            widget: "list"
+            fields:
+              - {label: "日期", name: "date", widget: "string"}
+              - {label: "状态文字", name: "status", widget: "string"}
+              - label: "状态类型"
+                name: "statusType"
+                widget: "select"
+                options: ["idea", "building", "review", "live", "planned"]
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "text"}
+              - label: "列表项"
+                name: "items"
+                widget: "list"
+                field: {label: "条目", name: "item", widget: "string"}
+              - label: "图片列表"
+                name: "images"
+                widget: "list"
+                required: false
+                field: {label: "图片路径", name: "item", widget: "image"}
+          - label: "引导区"
+            name: "cta"
+            widget: "object"
+            fields:
+              - {label: "标题", name: "title", widget: "string"}
+              - {label: "描述", name: "description", widget: "string"}
+              - {label: "主要按钮", name: "button", widget: "string"}
+              - {label: "次要按钮", name: "secondaryButton", widget: "string"}
