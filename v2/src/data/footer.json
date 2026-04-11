@@ -10,17 +10,42 @@
       "title_en": "Product",
       "title_zh": "产品",
       "links": [
-        { "label_en": "About", "label_zh": "关于", "url_en": "/about/", "url_zh": "/zh/about/" },
-        { "label_en": "Download", "label_zh": "下载", "url_en": "/download/", "url_zh": "/zh/download/" },
-        { "label_en": "Dev Log", "label_zh": "开发日志", "url_en": "/devlog/", "url_zh": "/zh/devlog/" }
+        {
+          "label_en": "About",
+          "label_zh": "关于",
+          "url_en": "/about/",
+          "url_zh": "/zh/about/"
+        },
+        {
+          "label_en": "Dev Log",
+          "label_zh": "开发日志",
+          "url_en": "/devlog/",
+          "url_zh": "/zh/devlog/"
+        },
+        {
+          "label_en": "Download",
+          "label_zh": "下载",
+          "url_en": "/download/",
+          "url_zh": "/zh/download/"
+        }
       ]
     },
     {
       "title_en": "Support",
       "title_zh": "支持",
       "links": [
-        { "label_en": "Privacy Policy", "label_zh": "隐私政策", "url_en": "/privacy/en/PrivacyPolicy.html", "url_zh": "/privacy/zh/PrivacyPolicy.html" },
-        { "label_en": "Terms of Use", "label_zh": "使用条款", "url_en": "/terms/en/TermsOfUse.html", "url_zh": "/terms/zh/TermsOfUse.html" }
+        {
+          "label_en": "Privacy Policy",
+          "label_zh": "隐私政策",
+          "url_en": "/privacy/en/PrivacyPolicy.html",
+          "url_zh": "/privacy/zh/PrivacyPolicy.html"
+        },
+        {
+          "label_en": "Terms of Use",
+          "label_zh": "使用条款",
+          "url_en": "/terms/en/TermsOfUse.html",
+          "url_zh": "/terms/zh/TermsOfUse.html"
+        }
       ]
     }
   ],
