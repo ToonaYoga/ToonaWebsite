@@ -54,12 +54,36 @@
   "links": {
     "title": "Quick Links",
     "items": [
-      { "icon": "🔒", "label": "Privacy Policy", "href": "/privacy/en/PrivacyPolicy.html" },
-      { "icon": "📄", "label": "Terms of Use", "href": "/terms/en/TermsOfUse.html" },
-      { "icon": "📝", "label": "Dev Log", "href": "/devlog/" },
-      { "icon": "👋", "label": "About Toona", "href": "/about/" },
-      { "icon": "⬇️", "label": "Download App", "href": "/download/" },
-      { "icon": "✉️", "label": "Contact Us", "href": "mailto:toonayoga@hotmail.com" }
+      {
+        "icon": "🔒",
+        "label": "Privacy Policy",
+        "href": "/privacy/en/PrivacyPolicy.html"
+      },
+      {
+        "icon": "📄",
+        "label": "Terms of Use",
+        "href": "/terms/en/TermsOfUse.html"
+      },
+      {
+        "icon": "📝",
+        "label": "Dev Log",
+        "href": "/devlog/"
+      },
+      {
+        "icon": "👋",
+        "label": "About Toona",
+        "href": "/about/"
+      },
+      {
+        "icon": "⬇️",
+        "label": "Download App",
+        "href": "https://apps.apple.com/us/app/toona-breathing-focus/id6761040533"
+      },
+      {
+        "icon": "✉️",
+        "label": "Contact Us",
+        "href": "mailto:toonayoga@hotmail.com"
+      }
     ]
   }
 }
